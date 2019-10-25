@@ -3,7 +3,7 @@ CREATE TABLE trUsers -- Create user table.
     userID          INT NOT NULL,
     username        NVARCHAR(50) NOT NULL,
     userPassword    NVARCHAR(50) NOT NULL,
-    userType        NVARCHAR (5) NOT NULL, 
+    userType        NVARCHAR (20) NOT NULL, 
 
     CONSTRAINT PK_Users PRIMARY KEY (userID)
 );
@@ -46,13 +46,14 @@ CREATE TABLE trFoodDetails -- Create food details table.
 
 CREATE TABLE trOrders -- Create table orders table.
 (
-    tableID     INT NOT NULL,
-    itemID      INT NOT NULL,
-    userID      INT NOT NULL,
-    drinkID     INT NOT NULL,   
-    foodID      INT NOT NULL,
-    quantity    INT NOT NULL,
-    price       FLOAT NOT NULL,
+    tableID         INT NOT NULL,
+    userID          INT NOT NULL,
+    itemID          INT NOT NULL,
+    drinkID         INT NOT NULL,
+    drinkQuantity   INT NOT NULL,      
+    foodID          INT NOT NULL,
+    foodQuantity    INT NOT NULL,
+    price           FLOAT NOT NULL,
 
     CONSTRAINT FK_UserOrderID FOREIGN KEY (userID)
     REFERENCES trUsers(userID),
