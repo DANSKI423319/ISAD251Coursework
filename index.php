@@ -1,20 +1,24 @@
 <?php 
-require_once 'CSS_StyleSheet.php'; 
+    require_once 'CSS_StyleSheet.php'; 
 ?>
 
-<html>
+<html>    
     
     <body class="body">
-
+        
         <h2 class="h2">
             The Cozy Tea Room
         </h2> 
-
-        <form class="formLayout" name="TableInput">
+        
+        <form action="menu.php" class="formLayout" method="GET">
             <b>Table Number:</b><br/>
-            <input type="text" name="tableNumber" placeholder="###" class="input" maxlength="3">
-            <input type="button" value="Enter new order" class="buttonEnterNumber">
-            <input type="button" value="Login" class='buttonLogin'>
+            <div>
+		<input type="text" name="tableNumber" placeholder="###" class="tableNum" maxlength="3" required>
+		<input type="submit" value="Enter new order" class="btnEnter">
+            </div>
+            <div>
+		<input type="button" value="Login" class="btnLogin">
+            </div>
         </form>
     
     </body>

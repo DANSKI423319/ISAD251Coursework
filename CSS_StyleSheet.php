@@ -4,23 +4,27 @@
 <html>
     <body>
         <style>
+            /* Body override */
             .body{
                 font-family: arial;
                 margin: 20px;
             }
             
+            /* Heading 2 override */
             .h2{
                 color: darkcyan;
             }
-                 
+            
+            /* Form layout across application */
             .formLayout{
                 border-radius: 5px;
                 background-color: #f2f2f2;
                 padding: 20px;
-                width:428px;
+                width: fit-content;
             }
             
-            .input[type=text]{
+            /* Input box for table number on home page */
+            .tableNum[type=text]{
                 width: 15%;
                 padding: 14px 20px;
                 margin: 8px 0;
@@ -30,28 +34,46 @@
                 text-align: center;
             }
             
-            .buttonEnterNumber{
+            /* Enter button for table number on home page */
+            .btnEnter{
                 background-color: darkcyan;
                 font-size: 16px;
                 transition: 0.3s;
-                opacity: 0.8;
                 padding: 12px 50px;
                 border: none;
                 color: white;
             }
             
-            .buttonLogin{
+            /* Login button override */
+            .btnLogin{
                 background-color: #ee3e80;
                 font-size: 16px;
                 transition: 0.3s; 
-                opacity: 0.8;
                 padding: 12px 50px;
                 border: none;
                 color: white;
             }
             
-            .buttonLogin:hover {opacity: 1};
-            .buttonEnterNumber:hover {opacity: 1};
+            /* Add item button for the menu */
+            .btnAdd{
+                background-color: darkcyan;
+                font-size: 16px;
+                transition: 0.3s;
+                padding: 10px 28px;
+                border: none;
+                color: white;
+            }
+            
+             /* Remove item button for the menu */
+            .btnRemove{
+                background-color: #ee3e80;
+                font-size: 16px;
+                transition: 0.3s;
+                padding: 10px 28px;
+                border: none;
+                color: white;
+            }
+            
 
         </style>
     </body>
