@@ -63,15 +63,3 @@ CREATE TABLE trOrders -- Create table orders table.
 
     CONSTRAINT PK_trOrders PRIMARY KEY (tableID)
 );
-
-DROP TABLE trOrders;
-DROP TABLE trFoodDetails;
-DROP TABLE trDrinkDetails;
-DROP TABLE trMenu;
-DROP TABLE trUsers;
-
-SELECT * FROM trOrders;
-SELECT * FROM trFoodDetails;
-SELECT * FROM trDrinkDetails; 
-SELECT * FROM trMenu;
-SELECT * FROM trUsers;
