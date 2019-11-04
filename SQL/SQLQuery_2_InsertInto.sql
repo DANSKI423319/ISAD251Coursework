@@ -16,6 +16,7 @@ INSERT INTO trMenu (itemID, price, quantity) -- Tea
 VALUES      (4, 2.10, 100);
 INSERT INTO trMenu (itemID, price, quantity) -- Hot chocolate
 VALUES      (5, 2.95, 100);
+
 -- Food
 INSERT INTO trMenu (itemID, price, quantity) -- Lemon sponge cake
 VALUES      (6, 3.10, 12);
