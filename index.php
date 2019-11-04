@@ -4,6 +4,10 @@
 
 <html>    
     
+    <title>
+        The Cozy Tea Room
+    </title>
+    
     <body class="body">
         
         <h2 class="h2">

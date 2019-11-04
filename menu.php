@@ -15,37 +15,65 @@
         
         <form class="formLayout">
             <div>
-                <table border="1">
-                    <thead>
-                        <tr>
-                            <th>
-                                <b>Tea / £3.30</b><br>
-                                <img src="img/tea.jpg" width="200"><br>
+                <table class="menuTable">
+                    <tbody>
+                        <tr align="center">
+                            <td>
+                                <img src="img/italianEspresso.jpg" alt="Italian Espresso" class="img"/><br>
                                 <input type="button" value="+" class="btnAdd">
                                 <input type="button" value="-" class="btnRemove">
-                            </th>
-                            <th><img src="img/tea.jpg" width="200"></th>
-                            <th><img src="img/tea.jpg" width="200"></th>
+                            </td>                 
+                            <td>
+                                <img src="img/latte.jpg" alt="Latte" class="img"/><br>
+                                <input type="button" value="+" class="btnAdd">
+                                <input type="button" value="-" class="btnRemove">
+                            </td>
+                            <td>
+                                <img src="img/flatWhite.jpg" alt="Flat White" class="img"/><br>
+                                <input type="button" value="+" class="btnAdd">
+                                <input type="button" value="-" class="btnRemove">                                
+                            </td>
+                            <td>
+                                <img src="img/teaCup.jpg" alt="Tea" class="img"/><br>
+                                <input type="button" value="+" class="btnAdd">
+                                <input type="button" value="-" class="btnRemove">
+                            </td>
+                            <td>
+                                <img src="img/hotChocolate.jpg" alt="Hot Chocolate" class="img"/><br>
+                                <input type="button" value="+" class="btnAdd">
+                                <input type="button" value="-" class="btnRemove">
+                            </td>
                         </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><img src="img/tea.jpg" width="200"></td>
-                            <td><img src="img/tea.jpg" width="200"></td>
-                            <td><img src="img/tea.jpg" width="200"></td>
-                        </tr>
-                        <tr>
-                            <td><img src="img/tea.jpg" width="200"></td>
-                            <td><img src="img/tea.jpg" width="200"></td>
-                            <td><img src="img/tea.jpg" width="200"></td>
-                        </tr>
-                        <tr>
-                            <td><img src="img/tea.jpg" width="200"></td>
-                            <td><img src="img/tea.jpg" width="200"></td>
-                            <td><img src="img/tea.jpg" width="200"></td>
+                        <tr align="center">
+                            <td>
+                                <img src="img/lemonCake.jpg" alt="Lemon Cake" class="img"/><br>
+                                <input type="button" value="+" class="btnAdd">
+                                <input type="button" value="-" class="btnRemove">
+                            </td>
+                            <td>
+                                <img src="img/chocolateCake.jpg" alt="Chocolate Cake" class="img"/><br>
+                                <input type="button" value="+" class="btnAdd">
+                                <input type="button" value="-" class="btnRemove">
+                            </td>
+                            <td>
+                                <img src="img/shortbread.jpg" alt="Shortbread" class="img"/><br>
+                                <input type="button" value="+" class="btnAdd">
+                                <input type="button" value="-" class="btnRemove">
+                            </td>
+                            <td>
+                                <img src="img/scone.jpg" alt="Scone" class="img"/><br>
+                                <input type="button" value="+" class="btnAdd">
+                                <input type="button" value="-" class="btnRemove">
+                            </td>
+                            <td>
+                                <img src="img/doughnut.jpg" alt="Doughnut" class="img"/><br>
+                                <input type="button" value="+" class="btnAdd">
+                                <input type="button" value="-" class="btnRemove">
+                            </td>
                         </tr>
                     </tbody>
                 </table>
+
 
             </div>
         </form>

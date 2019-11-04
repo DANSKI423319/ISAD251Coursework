@@ -74,6 +74,16 @@
                 color: white;
             }
             
+            /* Images for the menu */
+            .img{
+                width: 150px;
+                padding: 10px;
+            }
+            
+            .menuTable{
+                border: 1px solid black;
+            }
+            
 
         </style>
     </body>
