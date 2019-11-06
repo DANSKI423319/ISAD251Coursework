@@ -1,14 +1,15 @@
-<?php
-?>
-
 <html>
+    <head></head>
     <body>
+
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
         <style>
-            /* Body override */
-            .body{
-                font-family: arial;
-                margin: 20px;
-            }
             
             /* Heading 2 override */
             .h2{
@@ -25,8 +26,7 @@
             
             /* Input box for table number on home page */
             .tableNum[type=text]{
-                width: 15%;
-                padding: 14px 20px;
+                width: 25%;
                 margin: 8px 0;
                 display: inline-block;
                 border: 1px solid #ccc;
@@ -39,9 +39,10 @@
                 background-color: darkcyan;
                 font-size: 16px;
                 transition: 0.3s;
-                padding: 12px 50px;
+                padding: 8px 50px;
                 border: none;
                 color: white;
+                width: fit-content;
             }
             
             /* Login button override */
@@ -49,7 +50,7 @@
                 background-color: #ee3e80;
                 font-size: 16px;
                 transition: 0.3s; 
-                padding: 12px 50px;
+                padding: 8px 50px;
                 border: none;
                 color: white;
             }
@@ -84,7 +85,7 @@
                 border: 1px solid black;
             }
             
-
         </style>
+        
     </body>
 </html>
