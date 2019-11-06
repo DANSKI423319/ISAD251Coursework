@@ -9,8 +9,7 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 
-        <style>
-            
+        <style>           
             /* Heading 2 override */
             .h2{
                 color: darkcyan;
@@ -79,12 +78,7 @@
             .img{
                 width: 150px;
                 padding: 10px;
-            }
-            
-            .menuTable{
-                border: 1px solid black;
-            }
-            
+            }        
         </style>
         
     </body>
