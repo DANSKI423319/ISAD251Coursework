@@ -18,23 +18,8 @@
         <div class="container">
             <div class="row">
 
-                <div class="col-sm-4 text-center">
-                    <h3></h3>
-                    <p></p>
-                    <p></p>
-                </div>
+                <?php include 'dbConnection.php'; ?>
 
-                <div class="col-sm-4 text-center">
-                    <h3></h3>
-                    <p></p>
-                    <p><input type="button" value="+" class="btnAdd"><input type="button" value="-" class="btnRemove"></p>
-                </div>
-
-                <div class="col-sm-4 text-center">
-                    <h3></h3>        
-                    <p></p>
-                    <p></p>
-                </div>
             </div>
         </div>
 

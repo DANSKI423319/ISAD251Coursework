@@ -1,10 +1,42 @@
 <?php
 
+// Constant variables for database connection.
 const DB_SERVER   = 'proj-mysql.uopnet.plymouth.ac.uk';
 const DB_USER     = 'ISAD251_DSkillman';
 const DB_PASSWORD = 'ISAD251_22205389';
 const DB_DATABASE = 'ISAD251_DSkillman';
 
+$bootStrapMenu = 'col-sm-4 text-center';
+
+// Temporary connection to database.
+$dbConn = new mysqli(DB_SERVER, DB_USER, DB_PASSWORD, DB_DATABASE);
+if ($dbConn->connect_error) {
+    die ("Connection failed:". $dbConn->connect_error);
+}
+
+// Create SQL statement.
+$sql = "SELECT userID, username, userPassword, userType FROM trusers";
+
+// Output from table is executed through DB connection.
+$output = $dbConn->query($sql);
+
+// For as many rows exist, complete...
+if ($output->num_rows > 0) {
+    while ($row = $output->FETCH_ASSOC()) {
+        echo "<div class='$bootStrapMenu'>" . 
+        "<h3>USER</h3> " .
+        "<p>UserID: " . $row["userID"] . "</p>" . 
+        "<p>Username: " . $row["username"] . "</p>" . 
+        "<p>Password: " . $row["userPassword"] . "</p>" .
+        "<p>User Type: " . $row["userType"] . "</p>" .
+        "</div>" ;
+    }
+    } else {
+        echo "0 reults";
+    }
+
+// Close database connection.
+$dbConn->close();
 
 //function getConnection() {
 //
@@ -26,34 +58,3 @@ const DB_DATABASE = 'ISAD251_DSkillman';
 //    
 //    return $resultSet;
 //}
-
-$dbConn = new mysqli(DB_SERVER, DB_USER, DB_PASSWORD, DB_DATABASE);
-if($dbConn->connect_error) {
-    die("Connection failed:". $dbConn->connect_error);
-}
-
-$sql = "SELECT userID, username, userPassword, userType FROM trusers";
-$output = $dbConn->query($sql);
-
-if ($output->num_rows > 0) {
-    while($row = $output->FETCH_ASSOC()) {
-        echo "UserID: " . $row["userID"] . " / Username: " . $row["username"] . 
-                " / Password: " . $row["userPassword"] . " / User Type: " . 
-                $row["userType"] . ".<br>";
-    }
-    }else {
-        echo "0 reults";
-    }
-
-    
-
-//
-//if ($tableOut->num_rows > 0) {
-//    // output data of each row
-//    while($row = $tableOut->FETCH_ASSOC()) {
-//        echo "<br> id: ". $row["userID"]. " - Username: ". $row["username"]. 
-//                " - Password: " . $row["userPassword"] . " - User type: "
-//                . $row["userType"] . ".";
-//    }
-//} else {
-//    echo "0 results";
