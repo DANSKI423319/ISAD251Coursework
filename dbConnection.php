@@ -6,52 +6,45 @@ const DB_USER     = 'ISAD251_DSkillman';
 const DB_PASSWORD = 'ISAD251_22205389';
 const DB_DATABASE = 'ISAD251_DSkillman';
 
-$bootStrapMenu = 'col-sm-4 text-center';
+$bootStrap = 'col-sm-4 text-center';
 
-// Temporary connection to database.
-$dbConn = new mysqli(DB_SERVER, DB_USER, DB_PASSWORD, DB_DATABASE);
-if ($dbConn->connect_error) {
-    die ("Connection failed:". $dbConn->connect_error);
+function getConnection()
+{
+    $dataSourceName = 'mysql:dbname=' . DB_DATABASE . ';host=' . DB_SERVER;
+    $dbConnection = null;
+    try {
+        $dbConnection = new PDO($dataSourceName, DB_USER, DB_PASSWORD);
+        $sql = $dbConnection->prepare('SELECT * FROM trUsers');
+        echo '<div class=$bootStrap>
+        <h3>Connection Made</h3>
+        <p>Connection made!</p>
+        <p>Connection made!</p>
+        </div>';
+    } catch (PDOException $err) {
+        echo 'Connection failed: ', $err->getMessage();
+    }
+    return $dbConnection;
 }
 
-// Create SQL statement.
-$sql = "SELECT itemName, itemDesc, itemPrice FROM trmenu";
+function getAll($tablename)
+{
+    $statement = getConnection()->prepare("SELECT * FROM " . $tablename);
+    $statement->execute();
+    $resultSet = $statement->fetchAll(PDO::FETCH_ASSOC);
 
-// Output from table is executed through DB connection.
-$output = $dbConn->query($sql);
+    return $resultSet;
+}
 
-// For as many rows exist, complete...
-if ($output->num_rows > 0) {
-    while ($row = $output->FETCH_ASSOC()) {
-        echo "<div class='$bootStrapMenu'>" . 
-        "<p><h3>" . $row["itemName"] . "</h3></p>" . 
-        "<p>" . $row["itemDesc"] . "</p>" . 
-        "<p>£" . $row["itemPrice"] . "</p></div>";
-    }
-    } else {
-        echo "0 reults";
-    }
+// $sql = 'SELECT itemName, itemDesc, itemPrice FROM trMenu';
+// $output = $dbConnection->query($sql);
 
-// Close database connection.
-$dbConn->close();
-
-//function getConnection() {
-//
-//    $dataSrcName = 'mysql:dbname='.DB_DATABASE.';host='.DB_SERVER;
-//    $dbConnection = null;
-//    try
-//    {
-//        $dbConnection = new PDO($dataSrcName, DB_USER, DB_PASSWORD);
-//    } catch (PDOException $err) {
-//        echo 'Connection failed: ', $err->getMessage();
-//    }
-//    return $dbConnection;
-//}
-
-//function getTable($tablename) {
-//    $statement = getConnection()->prepare("SELECT * FROM".$tablename);
-//    $statement->execute();
-//    $resultSet = $statement ->fetchTable(PDO::FETCH_ASSOC);
-//    
-//    return $resultSet;
-//}
+// if ($output->num_rows > 0) {
+//     while ($row = $output->fetch_assoc()) {
+//         echo '<div class="$bootStrap>
+//         <h3>' . $row['itemName'] . '</h3>
+//         <p>' . $row['itemDesc'] . '</p>
+//         <p>' . $row['itemPrice'] . '</p>';
+//     }
+// } else {
+//     echo "0 results";
+// }
