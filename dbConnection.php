@@ -15,7 +15,7 @@ if ($dbConn->connect_error) {
 }
 
 // Create SQL statement.
-$sql = "SELECT userID, username, userPassword, userType FROM trusers";
+$sql = "SELECT itemName, itemDesc, itemPrice FROM trmenu";
 
 // Output from table is executed through DB connection.
 $output = $dbConn->query($sql);
@@ -24,12 +24,9 @@ $output = $dbConn->query($sql);
 if ($output->num_rows > 0) {
     while ($row = $output->FETCH_ASSOC()) {
         echo "<div class='$bootStrapMenu'>" . 
-        "<h3>USER</h3> " .
-        "<p>UserID: " . $row["userID"] . "</p>" . 
-        "<p>Username: " . $row["username"] . "</p>" . 
-        "<p>Password: " . $row["userPassword"] . "</p>" .
-        "<p>User Type: " . $row["userType"] . "</p>" .
-        "</div>" ;
+        "<p><h3>" . $row["itemName"] . "</h3></p>" . 
+        "<p>" . $row["itemDesc"] . "</p>" . 
+        "<p>£" . $row["itemPrice"] . "</p></div>";
     }
     } else {
         echo "0 reults";
