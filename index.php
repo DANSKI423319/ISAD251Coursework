@@ -2,7 +2,9 @@
 
     <head>
         <title>The Cozy Tea Room</title>
-        <?php include 'assets/header.php'; ?>
+        <?php 
+        include 'assets/header.php';
+        ?>
     </head>
 
     <body>

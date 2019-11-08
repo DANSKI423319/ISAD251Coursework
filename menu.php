@@ -2,8 +2,12 @@
 
 <head>
     <title>The Cozy Tea Room</title>
-    <?php include_once 'assets/header.php';
+    <?php 
+    include_once 'assets/header.php';
     include_once 'dbConnection.php';
+
+    $tableName = 'trUsers'
+
     ?>
 </head>
 
@@ -27,9 +31,36 @@
             </div>
 
             <div class="col-sm-4 text-center">
+                <p>
                 <?php
-                    getConnection();
+                    $tblOutput = getAll($tableName);
+                    if ($tblOutput)
+                    {
+                        $tblCols = empty($tableResults) ? array() : array_keys($tblOutput[0]);
+                        $tblColID = $tblCols[0];
+
+                        $tblString = '<table border="1"><tr>';
+                        $tblInputString = '';
+                        $tblInsertString = '';
+                        foreach ($tblCols as $tblCol)
+                        {
+                            $tblString .= '<th>' . $tblCol . '</th>';
+                            $tblInputString .= '<th>' . $tblCol . '</th>';
+                            $tblInsertString .= '<td><input type=\'text\' name\'' . $tblCol . '\'/></td>';
+                        }
+                        foreach ($tblOutput as $tblRow)
+                        {
+                            echo '<tr></br>';
+
+                            foreach ($tblRow as $tblCell)
+                            {
+                                echo '<td>Row1:' . $tblCell . '</td></br>';
+                            }
+                        }
+                        echo '</table>';
+                    }
                 ?>
+                </
             </div>
 
             <div class="col-sm-4 text-center">
