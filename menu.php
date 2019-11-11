@@ -6,7 +6,7 @@
     include_once 'assets/header.php';
     include_once 'dbConnection.php';
 
-    $tableName = 'trUsers'
+    $tableName = 'trmenu'
 
     ?>
 </head>
@@ -37,7 +37,7 @@
                     if ($tblOutput)
                     {
                         $tblCols = empty($tableResults) ? array() : array_keys($tblOutput[0]);
-                        $tblColID = $tblCols[0];
+                        $tblColID = $tblCols;
 
                         $tblString = '<table border="1"><tr>';
                         $tblInputString = '';
@@ -54,7 +54,7 @@
 
                             foreach ($tblRow as $tblCell)
                             {
-                                echo '<td>Row1:' . $tblCell . '</td></br>';
+                                echo '<td>' . $tblCell . '</td></br>';
                             }
                         }
                         echo '</table>';
