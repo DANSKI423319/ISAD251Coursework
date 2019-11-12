@@ -2,11 +2,13 @@
 
 <head>
     <title>The Cozy Tea Room</title>
-    <?php 
+
+    <?php
     include_once 'assets/header.php';
     include_once 'dbConnection.php';
 
     $tableName = 'trmenu'
+
 
     ?>
 </head>
@@ -18,58 +20,24 @@
     </div>
 
     <div class="col-sm-12 text-center">
-        <?php echo "<b>Your order is assigned to table number " . $_GET["tableNumber"] . ".</b>"; ?>
+        <?php echo "Your order is assigned to table number<b> " . $_GET["tableNumber"] . ".</b>"; ?>
     </div>
 
     <div class="container">
         <div class="row">
-
-            <div class="col-sm-4 text-center">
-                <h3>placeholder</h3>
-                <p>placeholder</p>
-                <p>placeholder</p>
-            </div>
-
-            <div class="col-sm-4 text-center">
-                <p>
+            <p>
                 <?php
-                    $tblOutput = getAll($tableName);
-                    if ($tblOutput)
-                    {
-                        $tblCols = empty($tableResults) ? array() : array_keys($tblOutput[0]);
-                        $tblColID = $tblCols;
-
-                        $tblString = '<table border="1"><tr>';
-                        $tblInputString = '';
-                        $tblInsertString = '';
-                        foreach ($tblCols as $tblCol)
-                        {
-                            $tblString .= '<th>' . $tblCol . '</th>';
-                            $tblInputString .= '<th>' . $tblCol . '</th>';
-                            $tblInsertString .= '<td><input type=\'text\' name\'' . $tblCol . '\'/></td>';
-                        }
-                        foreach ($tblOutput as $tblRow)
-                        {
-                            echo '<tr></br>';
-
-                            foreach ($tblRow as $tblCell)
-                            {
-                                echo '<td>' . $tblCell . '</td></br>';
-                            }
-                        }
-                        echo '</table>';
-                    }
+                require 'dbMenu.php'
                 ?>
+            </p>
+            <div class="panel panel-default">
+                <div class="panel-heading"><b>Basket</b></div>
+                <div class="panel=body">Basket Content</div>
             </div>
-
-            <div class="col-sm-4 text-center">
-                <h3>placeholder</h3>
-                <p>placeholder</p>
-                <p>placeholder</p>
-            </div>
-
         </div>
     </div>
+
+    <input type="button" value="Return" id="btnRet" onclick="btnReturn()">
 
 </body>
 

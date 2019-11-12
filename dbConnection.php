@@ -12,8 +12,6 @@ function getConnection()
     try
     {
         $dbConnection = new PDO($dataSourceName, DB_USER, DB_PASSWORD);
-        echo 'Connection made!';
-
     }  catch (PDOException $err)
     {
         echo 'Connection failed: ', $err->getMessage();
