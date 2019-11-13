@@ -1,6 +1,9 @@
+<script type="text/javascript" src="menuFunctions.js"></script>
+
 <?php
 include_once 'assets/header.php';
 include_once 'dbConnection.php';
+
 $tableName = 'trMenu';
 
 $tblOutput = getAll($tableName);
@@ -16,11 +19,10 @@ echo
                 <th></th>
             </tr>
         </thead>
-        <tbody>
-    ';
+        <tbody>';
 
 if ($tblOutput) {
-    $tblCols = empty($tableResults) ? array() : array_keys($tblOutput[0]);
+    $tblCols = empty($tblResults) ? array() : array_keys($tblOutput[0]);
     $tblColID = $tblCols;
 
     foreach ($tblOutput as $tblRow) {
@@ -29,11 +31,17 @@ if ($tblOutput) {
                 <td>' . $tblRow['itemName'] . '</td>
                 <td>' . $tblRow['itemDesc'] . '</td> .
                 <td>£' . $tblRow['itemPrice'] . '</td>
-                <td>
-                    <input class="btn-success" id="btnAdd" type="button" value="+">
-                    <input class="btn-danger" id="btnSub" type="button" value="-">
-                </tr>';
+                <td>'
+        ?>
+        <input class="btn-success" id="btnAdd" type="button" value="+" onclick="onClickAdd()">
+        <input class="btn-danger" id="btnSub" type="button" value="-" onclick="onClickSub()">
+<?php
+        '</tr>';
     }
 }
 
 echo '</tr></tbody></table>';
+
+echo '<pre>';
+print_r($tblOutput);
+echo '</pre>';
