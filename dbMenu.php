@@ -1,10 +1,10 @@
-<script type="text/javascript" src="menuFunctions.js"></script>
-
 <?php
 include_once 'assets/header.php';
 include_once 'dbConnection.php';
+include_once 'menuFunctions.php';
 
 $tableName = 'trMenu';
+$TEST = 'Tea';
 
 $tblOutput = getAll($tableName);
 
@@ -40,7 +40,11 @@ if ($tblOutput) {
     }
 }
 
-echo '</tr></tbody></table>';
+echo '</tr></tbody></table>            
+<div class="panel panel-default">
+    <div class="panel-heading"><b>Basket</b></div>
+    <div class="panel=body">Basket Content</div>
+</div>';
 
 echo '<pre>';
 print_r($tblOutput);

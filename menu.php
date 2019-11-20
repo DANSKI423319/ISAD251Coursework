@@ -30,10 +30,6 @@
                 require 'dbMenu.php'
                 ?>
             </p>
-            <div class="panel panel-default">
-                <div class="panel-heading"><b>Basket</b></div>
-                <div class="panel=body">Basket Content</div>
-            </div>
         </div>
     </div>
 
