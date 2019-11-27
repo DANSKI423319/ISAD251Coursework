@@ -21,7 +21,7 @@ function getConnection()
 
 function getAll($tablename)
 {
-    $statement = getConnection()->prepare("SELECT itemName, itemDesc, itemPrice FROM ".$tablename);
+    $statement = getConnection()->prepare("SELECT itemID, itemName, itemDesc, itemPrice FROM " . $tablename);
     $statement->execute();
     $resultSet = $statement->fetchAll(PDO::FETCH_ASSOC);
 

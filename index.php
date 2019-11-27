@@ -23,7 +23,6 @@
                             <label for="tableIn">Table Number:</label>
                             <input type="text" name="tableNumber" placeholder="###" class="tableNum" maxlength="3" id="tableIn" required><br>
                             <input type="submit" value="Enter new order" class="btnEnter">
-                            <input type="button" value="Login" class="btnLogin">
                         </div>
                     </form>
                 </div>

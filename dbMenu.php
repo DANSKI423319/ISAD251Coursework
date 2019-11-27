@@ -1,5 +1,3 @@
-<script type="text/javascript" src="menuFunctions.js"></script>
-
 <?php
 include_once 'assets/header.php';
 include_once 'dbConnection.php';
@@ -13,6 +11,7 @@ echo
     <table class="table">
         <thead>
             <tr>
+                <th>No. </th>
                 <th>Menu</th>
                 <th>About</th>
                 <th>Price</th>
@@ -28,20 +27,35 @@ if ($tblOutput) {
     foreach ($tblOutput as $tblRow) {
         echo
             '<tr>
-                <td>' . $tblRow['itemName'] . '</td>
-                <td>' . $tblRow['itemDesc'] . '</td> .
-                <td>£' . $tblRow['itemPrice'] . '</td>
-                <td>' /* ADD VALUE OR ID TO EACH ROW, TO EXTRACT VALUES */
-        ?>
-        <input class="btn-success" id="btnAdd" type="button" value="+" onclick="onClickAdd()">
-        <input class="btn-danger" id="btnSub" type="button" value="-" onclick="onClickSub()">
-<?php
-        '</tr>';
+                <td id="itemID' . $tblRow['itemID'] . '">'
+                . $tblRow['itemID'] . '</td>
+                <td id="nameID">' . $tblRow['itemName'] . '</td>
+                <td id="descID">' . $tblRow['itemDesc'] . '</td>
+                <td id="priceID' . $tblRow['itemID'] . '">£'
+                . $tblRow['itemPrice'] . '</td>
+                <td>
+                    <input class="btn-success" id="btnAdd' . $tblRow['itemID'] . '" 
+                        type="button" value="+" onclick="onClick_AddItem_' . $tblRow['itemID'] . '()">
+                    <input class="btn-danger" id="btnSub' . $tblRow['itemID'] . '"
+                        type="button" value="-" onclick="onClick_SubItem_' . $tblRow['itemID'] . '()">
+                </td>
+            </tr>';
     }
 }
 
-echo '</tr></tbody></table>';
 
-echo '<pre>';
-print_r($tblOutput);
-echo '</pre>';
+echo '</tr></tbody></table>           
+<div class="panel panel-default">
+    <div class="panel-heading"><b>Basket</b></div>
+    <div class="panel=body" id="txtBasket">'?>
+    
+    <?php include_once 'menuFunctions.php';
+    
+    echo 
+    '</div>
+</div>';
+
+// echo '<pre>';
+// print_r($tblOutput);
+// echo '</pre>';
+
