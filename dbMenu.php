@@ -1,6 +1,7 @@
 <?php
 include_once 'assets/header.php';
 include_once 'dbConnection.php';
+include_once 'menuFunctions.php';
 
 $tableName = 'trMenu';
 
@@ -12,10 +13,9 @@ echo
         <thead>
             <tr>
                 <th>No. </th>
-                <th>Menu</th>
+                <th>Menu Item</th>
                 <th>About</th>
                 <th>Price</th>
-                <th></th>
             </tr>
         </thead>
         <tbody>';
@@ -47,12 +47,31 @@ if ($tblOutput) {
 echo '</tr></tbody></table>           
 <div class="panel panel-default">
     <div class="panel-heading"><b>Basket</b></div>
-    <div class="panel=body" id="txtBasket">'?>
-    
-    <?php include_once 'menuFunctions.php';
-    
-    echo 
-    '</div>
+    <div class="panel=body" id="txtBasket">
+        <div class="col-sm-12">
+
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>No. </th>
+                        <th>Item</th>
+                        <th>Quantity</th>
+                        <th>Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td id="basketItemID"></td>
+                        <td id="basketNameID"></td>
+                        <td id="basketQtyID"></td>
+                        <td id="basketPriceID></td>
+                    </tr>
+                </tbody>
+
+            </table>
+
+        </div>
+    </div>
 </div>';
 
 // echo '<pre>';

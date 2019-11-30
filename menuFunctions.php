@@ -1,5 +1,9 @@
 <?php
 
+// NEXT THING TO DO:
+// Print button outputs to a table instead of a basket box.
+// Last worked on: 30/11/2019. Hours spent: 1.5.
+
 ?>
 
 <script language="javascript">
@@ -20,37 +24,39 @@
 
     // Cappicuno add button.
     function onClick_AddItem_1() {
-        if (itemID1.innerText == 1) {
-            cappucinoNum = cappucinoNum + 1;
-            cappucinoPrice = cappucinoPrice + 2.75;
-            var cappucinoString = "You have added " + cappucinoNum +
+        if (itemID1.innerText == 1) { // If button ID is equal to ID number...
+            var cappucinoString = ""; // Empty string variable,
+            cappucinoNum = cappucinoNum + 1; // Add one to amount integer variable,
+            cappucinoPrice = cappucinoPrice + 2.75; // Add price to integer variable,
+            cappucinoString = "\n You have added " + cappucinoNum + // Create string with all variables,
                 " x Cappucino, for " + cappucinoPrice + ".";
-            txtBasket.innerText = cappucinoString;
+            txtBasket.innerText = txtBasket.innerText + cappucinoString; // Print created string.
         }
     }
 
     // Cappicuno remove button.
     function onClick_SubItem_1() {
-        if (itemID1.innerText == 1 && cappucinoNum <= 1) {
-            txtBasket.innerText = "";
+        if (itemID1.innerText == 1 && cappucinoNum <= 1) { // If button ID is equal to ID number AND amount integer variable = 1 or less...
+            cappucinoString = ""; // Empty string variable.
             alert("All Cappucinos removed.");
         } else if (cappucinoNum > 0) {
             cappucinoNum = cappucinoNum - 1;
             cappucinoPrice = cappucinoPrice - 2.75;
-            var cappucinoString = "You have added " + cappucinoNum +
+            var cappucinoString = "\n You have added " + cappucinoNum +
                 " x Cappucino, for " + cappucinoPrice + ".";
-            txtBasket.innerText = cappucinoString;
+            txtBasket.innerText = txtBasket.innerText + cappucinoString;
         }
     }
 
     // Latte add button.
     function onClick_AddItem_2() {
         if (itemID2.innerText == 2) {
+            var latteString = "";
             latteNum = latteNum + 1;
             lattePrice = lattePrice + 2.75;
-            var latteString = "You have added " + latteNum +
+            latteString = "\n You have added " + latteNum +
                 " x Latte, for " + lattePrice + ".";
-            txtBasket.innerText = latteString;
+            txtBasket.innerText = txtBasket.innerText + latteString;
         }
     }
 
@@ -62,9 +68,9 @@
         } else if (latteNum > 0) {
             latteNum = latteNum - 1;
             lattePrice = lattePrice - 2.75;
-            var latteString = "You have added " + latteNum +
+            var latteString = "\n You have added " + latteNum +
                 " x Latte, for " + lattePrice + ".";
-            txtBasket.innerText = latteString;
+            txtBasket.innerText = txtBasket.innerText + latteString;
         }
     }
 
