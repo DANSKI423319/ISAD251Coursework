@@ -8,9 +8,8 @@
     include_once 'dbConnection.php';
 
     $tableName = 'trmenu'
-
-
     ?>
+
 </head>
 
 <body>

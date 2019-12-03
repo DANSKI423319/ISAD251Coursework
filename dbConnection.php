@@ -7,13 +7,11 @@ const DB_DATABASE = 'ISAD251_DSkillman';
 
 function getConnection()
 {
-    $dataSourceName = 'mysql:dbname='.DB_DATABASE.';host='.DB_SERVER;
+    $dataSourceName = 'mysql:dbname=' . DB_DATABASE . ';host=' . DB_SERVER;
     $dbConnection = null;
-    try
-    {
+    try {
         $dbConnection = new PDO($dataSourceName, DB_USER, DB_PASSWORD);
-    }  catch (PDOException $err)
-    {
+    } catch (PDOException $err) {
         echo 'Connection failed: ', $err->getMessage();
     }
     return $dbConnection;

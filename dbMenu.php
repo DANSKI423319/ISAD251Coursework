@@ -44,37 +44,38 @@ if ($tblOutput) {
 }
 
 
-echo '</tr></tbody></table>           
-<div class="panel panel-default">
-    <div class="panel-heading"><b>Basket</b></div>
-    <div class="panel=body" id="txtBasket">
-        <div class="col-sm-12">
+echo '</tr></tbody></table>
+    <div class="panel panel-default">
+     <div class="panel-heading"><b>Basket</b></div>
+     <div class="panel=body" id="txtBasket">
+         <div class="col-sm-12">
 
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th>No. </th>
-                        <th>Item</th>
-                        <th>Quantity</th>
-                        <th>Price</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td id="basketItemID"></td>
-                        <td id="basketNameID"></td>
-                        <td id="basketQtyID"></td>
-                        <td id="basketPriceID></td>
-                    </tr>
-                </tbody>
+             <table class="table">
+                 <thead>
+                     <tr>
+                         <th>No. </th>
+                         <th>Item</th>
+                         <th>Quantity</th>
+                         <th>Price</th>
+                     </tr>
+                 </thead>
+                 <tbody>
+                     <tr>
+                         <td id="basketItemID" disabled1="false"></td>
+                         <td id="basketNameID"></td>
+                         <td id="basketQtyID"></td>
+                         <td id="basketPriceID"></td>
+                     </tr>
+                 </tbody>
 
-            </table>
+             </table>
 
-        </div>
-    </div>
-</div>';
+         </div>
+     </div>
+ </div>';
 
 // echo '<pre>';
 // print_r($tblOutput);
 // echo '</pre>';
 
+echo $tblOutput[0]['itemName'];

@@ -1,8 +1,13 @@
 <?php
 
-// NEXT THING TO DO:
-// Print button outputs to a table instead of a basket box.
-// Last worked on: 30/11/2019. Hours spent: 1.5.
+/* 
+    NEXT TO DO:
+    Print button outputs to a table instead of a basket box.
+    Last worked on: 03/12/2019. 
+    Hours spent: 3.5.
+*/ 
+
+include_once 'dbConnection.php';
 
 ?>
 
@@ -22,6 +27,7 @@
     var hotChocNum = 0;
     var hotChocPrice = 0;
 
+    /*
     // Cappicuno add button.
     function onClick_AddItem_1() {
         if (itemID1.innerText == 1) { // If button ID is equal to ID number...
@@ -33,6 +39,30 @@
             txtBasket.innerText = txtBasket.innerText + cappucinoString; // Print created string.
         }
     }
+    */
+
+    
+    function onClick_AddItem_1() {
+        if (itemID1.innerText == 1) {
+            basketItemID.innerText = "<?php echo $tblOutput[0]['itemID']; ?>";
+            basketNameID.innerText = "<?php echo $tblOutput[0]['itemName']; ?>";
+            basketQtyID.innerText = cappucinoNum + 1;
+            basketPriceID.innerText = cappucinoPrice + 2.75;
+        }
+    }
+    
+
+    /*
+    function onClick_AddItem_1() {
+        if (itemID1.innerText == 1) {
+            basketItemID.innerText = "jeff";
+            basketNameID.innerText = "jeff";
+            basketQtyID.innerText = "1";
+            basketPriceID.innerText = "2.75";
+        }
+    }
+    */
+
 
     // Cappicuno remove button.
     function onClick_SubItem_1() {
