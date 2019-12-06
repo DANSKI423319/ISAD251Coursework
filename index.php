@@ -15,21 +15,18 @@
 
         <div class="container">
             <div class="row">
-                <div class="col-sm-4 text-center"><h3></h3><p></p><p></p></div>
-
-                <div class="col-sm-8 text-center">
-                    <form action="menu.php" class="formLayout" method="GET">
-                        <div>
-                            <label for="tableIn">Table Number:</label>
-                            <input type="text" name="tableNumber" placeholder="###" class="tableNum" maxlength="3" id="tableIn" required><br>
-                            <input type="submit" value="Enter new order" class="btnEnter">
-                        </div>
-                    </form>
-                </div>
-
-                <div class="col-sm-4 text-center"><h3></h3><p></p><p></p></div>
+                <div class="col-sm-4 text-center"></div>
+                    <div class="col-sm-8 text-center">
+                        <form action="menu.php" class="formLayout" method="GET">
+                            <div>
+                                <label for="tableIn">Table Number:</label>
+                                <input type="text" name="tableNumber" placeholder="###" class="tableNum" maxlength="3" id="tableIn" required><br>
+                                <input type="submit" value="Enter new order" class="btnEnter">
+                            </div>
+                        </form>
+                    </div>
+                <div class="col-sm-4 text-center"></div>
             </div>
         </div>
-
     </body>
 </html>

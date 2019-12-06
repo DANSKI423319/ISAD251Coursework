@@ -22,6 +22,13 @@
                 padding: 20px;
                 width: fit-content;
             }
+
+            .basketFormLayout{
+                border-radius: 5px;
+                background-color: #f2f2f2;
+                padding: 20px;
+                width: 100%;
+            }
             
             /* Input box for table number on home page */
             .tableNum[type=text]{
@@ -62,6 +69,10 @@
                 padding: 10px 28px;
                 border: none;
                 color: white;
+            }
+
+            .btn-primary{
+                font-size: 24px;
             }
             
              /* Remove item button for the menu */

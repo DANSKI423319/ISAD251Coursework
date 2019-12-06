@@ -2,14 +2,10 @@
 
 <head>
     <title>The Cozy Tea Room</title>
-
     <?php
     include_once 'assets/header.php';
     include_once 'dbConnection.php';
-
-    $tableName = 'trmenu'
     ?>
-
 </head>
 
 <body>
@@ -23,17 +19,17 @@
     </div>
 
     <div class="container">
-        <div class="row">
+        <div>
             <p>
                 <?php
-                require 'dbMenu.php'
+                require 'dbMenu.php';
+                ?>
+                <?php 
+                require_once 'menuBasket.php';
                 ?>
             </p>
         </div>
     </div>
-
-    <input type="button" value="Return" id="btnRet" onclick="btnReturn()">
-
 </body>
 
 </html>
