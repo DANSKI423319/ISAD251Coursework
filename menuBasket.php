@@ -1,5 +1,5 @@
 <?php
-
+/*
 echo '  
     <div class="text-center">
         <form action="order.php" class="basketFormLayout" method="post">
@@ -34,5 +34,6 @@ if ($tblOutput) {
 echo '
 </tbody></form></div>
 ';
+*/
 
-echo '';
+// CODE NOT IN USE. CODE NOT IN USE. CODE NOT IN USE. //

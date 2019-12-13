@@ -38,6 +38,7 @@
         }
     */
 
+    /*
     // ADD TO BASKET FUNCTIONS.
     // Add Cappucino.
     function onClick_AddItem_1() {
@@ -52,6 +53,7 @@
             basketPriceID_1.innerText = "£." + newPrice;        // Price box equals the newPrice varaible.
         }
     }
+    
 
     // Add Latte.
     function onClick_AddItem_2() {
@@ -360,4 +362,7 @@
             basketPriceID_10.innerText = "£." + newPrice;
         }
     }
+    */
+
+    // CODE NOT IN USE. CODE NOT IN USE. CODE NOT IN USE. //
 </script>

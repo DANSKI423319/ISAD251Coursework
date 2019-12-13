@@ -20,8 +20,9 @@
                         <form action="menu.php" class="formLayout" method="GET">
                             <div>
                                 <label for="tableIn">Table Number:</label>
-                                <input type="text" name="tableNumber" placeholder="###" class="tableNum" maxlength="3" id="tableIn" required><br>
-                                <input type="submit" value="Enter new order" class="btnEnter">
+                                <input type="text" name="tableNumber" placeholder="###" class="small-text" maxlength="3" id="tableIn" required><br>
+                                <input type="submit" value="Enter new order" class="btnEnter"><br><br>
+                                <input type="button" value="Previous Orders" class="btnEnter">
                             </div>
                         </form>
                     </div>
