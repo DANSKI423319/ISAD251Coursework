@@ -16,14 +16,12 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-4 text-center"></div>
-                    <div class="col-sm-8 text-center">
-                        <form action="menu.php" class="formLayout" method="GET">
-                            <div>
-                                <label for="tableIn">Table Number:</label>
-                                <input type="text" name="tableNumber" placeholder="###" class="small-text" maxlength="3" id="tableIn" required><br>
-                                <input type="submit" value="Enter new order" class="btnEnter"><br><br>
-                                <input type="button" value="Previous Orders" class="btnEnter">
-                            </div>
+                    <div class="col-sm-4 text-center">
+                        <form action="VIEW_customerHome.php">
+                            <input type="submit" class="btnEnter" value="Login as: Customer">
+                        </form>
+                        <form action="VIEW_adminHome.php">
+                            <input type="submit" class="btnEnter" value="Login as: Admin">
                         </form>
                     </div>
                 <div class="col-sm-4 text-center"></div>

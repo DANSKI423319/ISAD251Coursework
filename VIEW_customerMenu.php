@@ -4,7 +4,7 @@
     <title>The Cozy Tea Room</title>
     <?php
     include_once 'assets/header.php';
-    include_once 'dbConnection.php';
+    include_once 'CONTROLLER_dbMenuConnection.php';
     ?>
 </head>
 
@@ -22,10 +22,7 @@
         <div>
             <p>
                 <?php
-                require 'dbMenu.php';
-                ?>
-                <?php 
-                require_once 'menuBasket.php';
+                require 'CONTROLLER_customerMenuLoader.php';
                 ?>
             </p>
         </div>

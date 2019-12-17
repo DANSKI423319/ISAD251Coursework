@@ -1,14 +1,13 @@
 <?php
 include_once 'assets/header.php';
-include_once 'dbConnection.php';
-include_once 'menuBasketFunctions.php';
+include_once 'CONTROLLER_dbMenuConnection.php';
 
 $tableName = 'trMenu';
 $tblOutput = getAll($tableName);
 
 echo '
     <div>
-        <form action="order.php" method="GET">
+        <form action="VIEW_customerOrder.php" method="GET">
             <table class="table">
                 <thead>
                     <tr>
