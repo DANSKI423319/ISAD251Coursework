@@ -1,9 +1,10 @@
 <?php
 include_once 'assets/header.php';
-include_once 'CONTROLLER_dbMenuConnection.php';
+include_once 'MODEL_dbMenuConnection.php';
 
 $tableName = 'trMenu';
 $tblOutput = getAll($tableName);
+$totalPrice = 0;
 
 echo '
     <div>
@@ -28,13 +29,13 @@ if ($tblOutput) {
     foreach ($tblOutput as $tblRow) {
         echo '
                     <tr>
-                        <td id="itemID'. $tblRow['itemID'] .'">'. $tblRow['itemID'] .'</td>
-                        <td id="nameID'. $tblRow['itemID'] .'">'. $tblRow['itemName'] .'</td>
-                        <td id="descID'. $tblRow['itemID'] .'">'. $tblRow['itemDesc'] .'</td>
-                        <td id="priceID'. $tblRow['itemID'] .'">£'. $tblRow['itemPrice'] .'</td>
+                        <td id="itemID' . $tblRow['itemID'] . '">' . $tblRow['itemID'] . '</td>
+                        <td id="nameID' . $tblRow['itemID'] . '">' . $tblRow['itemName'] . '</td>
+                        <td id="descID' . $tblRow['itemID'] . '">' . $tblRow['itemDesc'] . '</td>
+                        <td id="priceID' . $tblRow['itemID'] . '">£' . $tblRow['itemPrice'] . '</td>
                         <td>
-                            <input type="button" class="btn-success" id="btnAdd'. $tblRow['itemID'] .'" value="+" onclick="onClick_AddItem_'. $tblRow['itemID'] .'()">
-                            <input type="button" class="btn-danger" id="btnSub'. $tblRow['itemID'] .'" value="-" onclick="onClick_SubItem_'. $tblRow['itemID'] .'()">
+                            <input type="button" class="btn-success" id="btnAdd' . $tblRow['itemID'] . '" value="+" onclick="onClick_AddItem_' . $tblRow['itemID'] . '()">
+                            <input type="button" class="btn-danger" id="btnSub' . $tblRow['itemID'] . '" value="-" onclick="onClick_SubItem_' . $tblRow['itemID'] . '()">
                         </td>
                         <td>
                             <input type="text" class="w3-input" id="itemQty_' . $tblRow['itemID'] . '" value="0" disabled><br>
@@ -44,21 +45,19 @@ if ($tblOutput) {
         <script language="javaScript">
 
         // Add item to order.
-        var numQty_'. $tblRow['itemID'] .' = 0; 
-        function onClick_AddItem_'. $tblRow['itemID'] .'() {
-            numQty_'. $tblRow['itemID'] .' = numQty_'. $tblRow['itemID'] .' + 1;
-            alert("You have added 1: " + nameID'. $tblRow['itemID'] .'.innerText);
-            itemQty_'. $tblRow['itemID'] .'.value = numQty_'. $tblRow['itemID'] .';
+        var numQty_' . $tblRow['itemID'] . ' = 0; 
+        function onClick_AddItem_' . $tblRow['itemID'] . '() {
+            numQty_' . $tblRow['itemID'] . ' = numQty_' . $tblRow['itemID'] . ' + 1;
+            itemQty_' . $tblRow['itemID'] . '.value = numQty_' . $tblRow['itemID'] . ';
         }
 
         // Remove item from order.
-        function onClick_SubItem_'. $tblRow['itemID'] .'() {
-            numQty_'. $tblRow['itemID'] .' = numQty_'. $tblRow['itemID'] .' - 1;
-            alert("You have subtracted 1: " + nameID'. $tblRow['itemID'] .'.innerText);
-            itemQty_'. $tblRow['itemID'] .'.value = numQty_'. $tblRow['itemID'] .';
-            if (numQty_'.$tblRow['itemID'].' <= -1) {
-                numQty_'.$tblRow['itemID'].' = 0;
-                itemQty_'. $tblRow['itemID'] .'.value = numQty_'. $tblRow['itemID'] .';
+        function onClick_SubItem_' . $tblRow['itemID'] . '() {
+            numQty_' . $tblRow['itemID'] . ' = numQty_' . $tblRow['itemID'] . ' - 1;
+            itemQty_' . $tblRow['itemID'] . '.value = numQty_' . $tblRow['itemID'] . ';
+            if (numQty_' . $tblRow['itemID'] . ' <= -1) {
+                numQty_' . $tblRow['itemID'] . ' = 0;
+                itemQty_' . $tblRow['itemID'] . '.value = numQty_' . $tblRow['itemID'] . ';
                 alert("ERROR: Cannot have minus products.");
             }
         }
@@ -70,10 +69,12 @@ echo '
                     </tr>
                 </tbody>
             </table>
-        <b><input type="submit" name="order" value="Place Order" class="btn-primary"></b>
         </form>
+        <b><input type="button" name="order" value="Place Order" class="btn-primary" onclick="onClick_PlaceOrder"></b>
+        <b><input type="text" name="totalPrice" value="£' . $totalPrice . '" class="input"></b>
     </div>';
 
+    
 /*
 // echo '<pre>';
 // print_r($tblOutput);

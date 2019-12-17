@@ -89,7 +89,7 @@
             .img{
                 width: 150px;
                 padding: 10px;
-            }        
+            }
         </style>
         
     </body>
