@@ -13,19 +13,33 @@
 
         <div class="container">
             <div class="row">
-                <div class="col-sm-4 text-center"></div>
-                    <div class="col-sm-8 text-center">
+                <div class="col-sm-4"></div>
+                    <div class="col-sm-4 text-center">
                         <form action="VIEW_customerMenu.php" class="formLayout" method="GET">
                             <div>
-                                <label for="tableIn">Table Number:</label>
-                                <input type="text" name="tableNumber" placeholder="###" class="small-text" maxlength="3" id="tableIn" required><br>
-                                <input type="submit" value="Enter new order" class="btnEnter"><br><br>
-                                <input type="button" value="Previous Orders" class="btnEnter">
+                                <label for="tableIn">Table Number:</label></br>
+                                <input type="text" class="small-text" placeholder="###" name="tableNumber" maxlength="3" id="tableIn" required>
+                                <input type="submit" class="btn btn-primary" value="Enter new order">
                             </div>
                         </form>
+                        <input type="button" value="Previous Orders" class="btn btn-primary" onclick="onClick_PreviousOrders()"></br></br>
+                        <input type="button" value="Back to Home" class="btn btn-danger" onclick="onClick_ToHome()">
                     </div>
                 <div class="col-sm-4 text-center"></div>
             </div>
         </div>
     </body>
 </html>
+
+<script>
+    function onClick_PreviousOrders() {
+        window.location.href = "VIEW_customerPreviousOrders.php";
+        window.location.replace = ("VIEW_customerPreviousOrders.php");
+    }
+
+    function onClick_ToHome() {
+        window.location.href = "index.php";
+        window.location.replace = ("index.php");
+    }
+</script>
+

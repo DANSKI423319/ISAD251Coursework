@@ -4,7 +4,6 @@ include_once 'MODEL_dbMenuConnection.php';
 
 $tableName = 'trMenu';
 $tblOutput = getAll($tableName);
-$totalPrice = 0;
 
 echo '
     <div>
@@ -45,19 +44,25 @@ if ($tblOutput) {
         <script language="javaScript">
 
         // Add item to order.
+        var total = 0.00;
         var numQty_' . $tblRow['itemID'] . ' = 0; 
         function onClick_AddItem_' . $tblRow['itemID'] . '() {
             numQty_' . $tblRow['itemID'] . ' = numQty_' . $tblRow['itemID'] . ' + 1;
             itemQty_' . $tblRow['itemID'] . '.value = numQty_' . $tblRow['itemID'] . ';
+            total = total + ' . $tblRow['itemPrice'] . ';
+            totalPrice.value = total.toFixed(2);
         }
 
         // Remove item from order.
         function onClick_SubItem_' . $tblRow['itemID'] . '() {
             numQty_' . $tblRow['itemID'] . ' = numQty_' . $tblRow['itemID'] . ' - 1;
             itemQty_' . $tblRow['itemID'] . '.value = numQty_' . $tblRow['itemID'] . ';
+            total = total - ' . $tblRow['itemPrice'] . ';
+            totalPrice.value = total.toFixed(2);
             if (numQty_' . $tblRow['itemID'] . ' <= -1) {
-                numQty_' . $tblRow['itemID'] . ' = 0;
+                numQty_' . $tblRow['itemID'] . ' = 0.00;
                 itemQty_' . $tblRow['itemID'] . '.value = numQty_' . $tblRow['itemID'] . ';
+                totalPrice.value = 0;
                 alert("ERROR: Cannot have minus products.");
             }
         }
@@ -70,15 +75,15 @@ echo '
                 </tbody>
             </table>
         </form>
-        <b><input type="button" name="order" value="Place Order" class="btn-primary" onclick="onClick_PlaceOrder"></b>
-        <b><input type="text" name="totalPrice" value="£' . $totalPrice . '" class="input"></b>
+        <b>TOTAL: £ <input type="text" id="totalPrice" name="totalPrice" class="w3-input" disabled></b></br></br>
+        <b><input type="button" name="order" value="Proceed" class="btn btn-primary" onclick="onClick_PlaceOrder()"></b>
     </div>';
 
-    
-/*
-// echo '<pre>';
-// print_r($tblOutput);
-// echo '</pre>';
+?>
 
-// echo $tblOutput[0]['itemID'];
-*/
+<script>
+    function onClick_PlaceOrder() {
+        window.location.href = "VIEW_customerOrder.php";
+        window.location.replace("VIEW_customerOrder.php");
+    }
+</script>

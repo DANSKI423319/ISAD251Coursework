@@ -19,10 +19,19 @@
     <div class="container">
         <div>
             <p>
-                <?php require 'CONTROLLER_customerMenuLoader.php'; ?>
+                <?php require 'CONTROLLER_customerMenuLoader.php'; ?></br>
+                <input type="button" class="btn btn-danger" value="Return to Table Select" 
+                    onclick="onClick_TableSel()">
             </p>
         </div>
     </div>
 </body>
 
 </html>
+
+<script>
+    function onClick_TableSel() {
+        window.location.href = "VIEW_customerHome.php";
+        window.location.replace = ("VIEW_customerHome.php");
+    }
+</script>

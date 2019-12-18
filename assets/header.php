@@ -70,10 +70,6 @@
                 border: none;
                 color: white;
             }
-
-            .btn-primary{
-                font-size: 24px;
-            }
             
              /* Remove item button for the menu */
             .btnRemove{

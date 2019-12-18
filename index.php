@@ -1,9 +1,7 @@
 <html>    
-
     <head>
         <title>The Cozy Tea Room</title>
-        <?php 
-        include 'assets/header.php';
+        <?php include 'assets/header.php'; 
         ?>
     </head>
 
@@ -17,15 +15,25 @@
             <div class="row">
                 <div class="col-sm-4 text-center"></div>
                     <div class="col-sm-4 text-center">
-                        <form action="VIEW_customerHome.php">
-                            <input type="submit" class="btnEnter" value="Login as: Customer">
-                        </form>
-                        <form action="VIEW_adminHome.php">
-                            <input type="submit" class="btnEnter" value="Login as: Admin">
-                        </form>
+                        <input type="button" class="btn btn-primary" value="Login as: Customer" onclick="onClick_LoginCustomer()"><br><br>
+                        <input type="button" class="btn btn-primary" value="Login as: Admin" onclick="onClick_LoginAdmin()">
                     </div>
                 <div class="col-sm-4 text-center"></div>
             </div>
         </div>
+
     </body>
+
 </html>
+
+<script>
+    function onClick_LoginCustomer() {
+        window.location.href = "VIEW_customerHome.php";
+        window.location.replace("VIEW_customerHome.php");
+    }    
+
+    function onClick_LoginAdmin() {
+        window.location.href = "VIEW_adminHome.php";
+        window.location.replace("VIEW_adminHome.php");
+    }
+</script>
