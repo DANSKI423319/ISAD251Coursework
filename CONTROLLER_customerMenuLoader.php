@@ -1,9 +1,9 @@
 <?php
 include_once 'assets/header.php';
-include_once 'MODEL_dbMenuConnection.php';
+include_once 'MODEL_dbConnection.php';
 
 $tableName = 'trMenu';
-$tblOutput = getAll($tableName);
+$tblCommand = getCustomerMenu($tableName);
 
 echo '
     <div>
@@ -21,11 +21,11 @@ echo '
                 </thead>
             <tbody>';
 
-if ($tblOutput) {
-    $tblCols = empty($tblResults) ? array() : array_keys($tblOutput[0]);
+if ($tblCommand) {
+    $tblCols = empty($tblResults) ? array() : array_keys($tblCommand[0]);
     $tblColID = $tblCols;
 
-    foreach ($tblOutput as $tblRow) {
+    foreach ($tblCommand as $tblRow) {
         echo '
                     <tr>
                         <td id="itemID' . $tblRow['itemID'] . '">' . $tblRow['itemID'] . '</td>
@@ -71,13 +71,13 @@ if ($tblOutput) {
     }
 }
 echo '
-                    </tr>
-                </tbody>
+            </tbody>
             </table>
         </form>
         <b>TOTAL: £ <input type="text" id="totalPrice" name="totalPrice" class="w3-input" disabled></b></br></br>
         <b><input type="button" name="order" value="Proceed" class="btn btn-primary" onclick="onClick_PlaceOrder()"></b>
-    </div>';
+    </div>
+';
 
 ?>
 

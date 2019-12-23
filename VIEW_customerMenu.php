@@ -1,9 +1,12 @@
+<?php
+include_once 'assets/header.php';
+include_once 'MODEL_dbConnection.php';
+?>
+
 <html>
 
 <head>
     <title>The Cozy Tea Room</title>
-    <?php include_once 'assets/header.php';
-    include_once 'MODEL_dbMenuConnection.php'; ?>
 </head>
 
 <body>
@@ -20,8 +23,7 @@
         <div>
             <p>
                 <?php require 'CONTROLLER_customerMenuLoader.php'; ?></br>
-                <input type="button" class="btn btn-danger" value="Return to Table Select" 
-                    onclick="onClick_TableSel()">
+                <input type="button" class="btn btn-danger" value="Return to Table Select" onclick="onClick_TableSel()">
             </p>
         </div>
     </div>

@@ -1,34 +1,38 @@
-<html>    
+<?php
+include 'assets/header.php';
+?>
 
-    <head>
-        <title>The Cozy Tea Room</title>
-        <?php include 'assets/header.php'; ?>
-    </head>
+<html>
 
-    <body>
+<head>
+    <title>The Cozy Tea Room</title>
+</head>
 
-        <div class="jumbotron text-center">
-            <h1>The Cozy Tea Room</h1>
-        </div>
+<body>
 
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-4"></div>
-                    <div class="col-sm-4 text-center">
-                        <form action="VIEW_customerMenu.php" class="formLayout" method="GET">
-                            <div>
-                                <label for="tableIn">Table Number:</label></br>
-                                <input type="text" class="small-text" placeholder="###" name="tableNumber" maxlength="3" id="tableIn" required>
-                                <input type="submit" class="btn btn-primary" value="Enter new order">
-                            </div>
-                        </form>
-                        <input type="button" value="Previous Orders" class="btn btn-primary" onclick="onClick_PreviousOrders()"></br></br>
-                        <input type="button" value="Back to Home" class="btn btn-danger" onclick="onClick_ToHome()">
+    <div class="jumbotron text-center">
+        <h1>The Cozy Tea Room</h1>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-4"></div>
+            <div class="col-sm-4 text-center">
+                <form action="VIEW_customerMenu.php" class="formLayout" method="GET">
+                    <div>
+                        <label for="tableIn">Table Number:</label></br>
+                        <input type="text" class="small-text" placeholder="###" name="tableNumber" maxlength="3" id="tableIn" required>
+                        <input type="submit" class="btn btn-primary" value="Enter new order">
                     </div>
-                <div class="col-sm-4 text-center"></div>
+                </form>
+                <input type="button" value="Previous Orders" class="btn btn-primary" onclick="onClick_PreviousOrders()"></br></br>
+                <input type="button" value="Back to Home" class="btn btn-danger" onclick="onClick_ToHome()">
             </div>
+            <div class="col-sm-4 text-center"></div>
         </div>
-    </body>
+    </div>
+</body>
+
 </html>
 
 <script>
@@ -42,4 +46,3 @@
         window.location.replace = ("index.php");
     }
 </script>
-

@@ -1,9 +1,9 @@
 <?php
 include_once 'assets/header.php';
-include_once 'MODEL_dbOrderConnection.php';
+include_once 'MODEL_dbConnection.php';
 
 $tableName = 'trOrders';
-$tblOutput = viewOrders($tableName);
+$tblCommand = viewOrders($tableName);
 
 echo '
         <div>
@@ -17,11 +17,11 @@ echo '
                 </thead>
             </tbody>';
 
-if ($tblOutput) {
-    $tblCols = empty($tblResults) ? array() : array_keys($tblOutput[0]);
+if ($tblCommand) {
+    $tblCols = empty($tblResults) ? array() : array_keys($tblCommand[0]);
     $tblColID = $tblCols;
 
-    foreach ($tblOutput as $tblRow) {
+    foreach ($tblCommand as $tblRow) {
         echo '
                                 <tr>
                                     <td id="itemID' . $tblRow['itemID'] . '">' . $tblRow['itemID'] . '</td>
@@ -37,5 +37,3 @@ echo '
     </div>
     
     ';
-
-

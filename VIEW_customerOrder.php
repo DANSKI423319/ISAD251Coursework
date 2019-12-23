@@ -1,11 +1,12 @@
+<?php
+include_once 'assets/header.php';
+include_once 'MODEL_dbConnection.php';
+?>
+
 <html>
 
 <head>
     <title>The Cozy Tea Room</title>
-    <?php
-    include_once 'assets/header.php';
-    include_once 'MODEL_dbOrderConnection.php';
-    ?>
 </head>
 
 <body>
@@ -22,7 +23,7 @@
     <div class="container">
         <div>
             <p>
-                <?php require 'CONTROLLER_customerOrder.php'; ?>           
+                <?php require 'CONTROLLER_customerOrder.php'; ?>
             </p>
         </div>
     </div>
