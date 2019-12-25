@@ -42,7 +42,7 @@ include 'assets/header.php';
     }
 
     function onClick_ToHome() {
-        window.location.href = "index.php";
-        window.location.replace = ("index.php");
+        window.location.href = "VIEW_index.php";
+        window.location.replace = ("VIEW_index.php");
     }
 </script>

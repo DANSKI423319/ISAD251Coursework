@@ -43,19 +43,3 @@ function viewOrders($tablename)
 
     return $resultSet;
 }
-
-
-function addToMenu()
-{
-    $statement = getConnection()->prepare("INSERT INTO trMenu (itemID, itemType, itemName, itemDesc, itemPrice, ItemStock)
-        VALUES (:itemID, :itemType, :itemName, :itemDesc, :itemPrice, :itemStock)");
-
-    $statement->bindParam(':itemID', $itemID, PDO::PARAM_INT);
-    $statement->bindParam(':itemName', $itemName, PDO::PARAM_STR);
-    $statement->bindParam(':itemDesc', $itemDesc, PDO::PARAM_STR);
-    $statement->bindParam(':itemPrice', $itemPrice, PDO::PARAM_STR);
-    $statement->bindParam(':itemStock', $itemStock, PDO::PARAM_INT);
-
-    $statement->execute();
-    $resultSet = $statement->fetchAll(PDO::FETCH_ASSOC);
-}

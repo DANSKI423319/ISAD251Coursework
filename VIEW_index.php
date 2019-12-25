@@ -29,12 +29,12 @@
 
 <script>
     function onClick_LoginCustomer() {
-        window.location.href = "VIEW_customerHome.php";
-        window.location.replace("VIEW_customerHome.php");
+        window.location.href = "VIEW_customerIndex.php";
+        window.location.replace("VIEW_customerIndex.php");
     }
 
     function onClick_LoginAdmin() {
-        window.location.href = "VIEW_adminHome.php";
-        window.location.replace("VIEW_adminHome.php");
+        window.location.href = "VIEW_adminIndex.php";
+        window.location.replace("VIEW_adminIndex.php");
     }
 </script>

@@ -22,9 +22,19 @@ include_once 'MODEL_dbConnection.php';
 
     <div class="container">
         <div>
-            <p>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>itemID</th>
+                        <th>Quantity</th>
+                        <th>itemPrice</th>
+                    </tr>
+                </thead>
+                </tbody>'
                 <?php require 'CONTROLLER_customerOrder.php'; ?>
-            </p>
+
+                /tbody>
+            </table>
         </div>
     </div>
 </body>
