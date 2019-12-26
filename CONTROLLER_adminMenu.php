@@ -24,11 +24,16 @@ if ($tblCommand) {
                 <script language="javaScript">
 
                     function onClick_EditItem_' . $tblRow['itemID'] . '() {
-                    txtEditID.value = itemID' . $tblRow['itemID'] . '.innerText;
-                    txtEditName.value = nameID' . $tblRow['itemID'] . '.innerText;
-                    txtEditDesc.value = descID' . $tblRow['itemID'] . '.innerText;
-                    txtEditPrice.value = ' . $tblRow['itemPrice'] . ';
-                    btnUnlockFields.disabled = false;
+                        txtEditID.value = itemID' . $tblRow['itemID'] . '.innerText;
+                        txtEditName.value = nameID' . $tblRow['itemID'] . '.innerText;
+                        txtEditDesc.value = descID' . $tblRow['itemID'] . '.innerText;
+                        txtEditPrice.value = ' . $tblRow['itemPrice'] . ';
+                        txtEditStock.value = ' . $tblRow['itemStock'] . ';
+                        btnUnlockFields.disabled = false;
+                    }
+
+                    function onClick_RemItem_' . $tblRow['itemID'] . '() {
+                        txtRemID.value = itemID' . $tblRow['itemID'] . '.innerText;
                     }
                 </script>
             ';

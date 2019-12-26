@@ -2,12 +2,16 @@
 include 'assets/header.php';
 include 'MODEL_dbConnection.php';
 
-if (isset($_POST['insertData'])) {
-    include_once 'CONTROLLER_adminAddItem.php';
+if (isset($_POST['addData'])) {
+    adminAddItem();
 }
 
-if (isset($_POST['changeData'])) {
-    include_once 'CONTROLLER_adminEditItem.php';
+if (isset($_POST['editData'])) {
+    adminEditItem();
+}
+
+if (isset($_POST['deleteData'])) {
+    adminDeleteItem();
 }
 ?>
 
@@ -29,50 +33,56 @@ if (isset($_POST['changeData'])) {
 
     <div class="container text-center">
         <div>
-            <form>
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th>No. </th>
-                            <th>Menu Item</th>
-                            <th>About</th>
-                            <th>Price</th>
-                            <th>Stock</th>
-                            <th>Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php require 'CONTROLLER_adminMenu.php' ?>
-                    </tbody>
-                </table>
-            </form>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>No. </th>
+                        <th>Menu Item</th>
+                        <th>About</th>
+                        <th>Price</th>
+                        <th>Stock</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php require 'CONTROLLER_adminMenu.php' ?>
+                </tbody>
+            </table>
         </div>
     </div>
     </div>
 
     <div class="text-center">
-        <b> EDIT MENU ITEM </b>
-        <form action="VIEW_adminMenu.php" method="post">
-            <input type="text" name="editItemID" id="txtEditID" class="w3-input" disabled="true" placeholder="Item ID... ">
-            <input type="text" name="editItemName" id="txtEditName" class="w3-input" disabled="true" placeholder="Item Name...">
-            <input type="text" name="editItemDesc" id="txtEditDesc" class="w3-input" disabled="true" placeholder="Item Description..." style="width: 20%">
-            <input type="text" name="editItemPrice" id="txtEditPrice" class="w3-input" disabled="true" placeholder="Item Price...">
-            <input type="button" id="btnUnlockFields" class="btn btn-warning" disabled="true" value="Unlock Fields" onclick="onClick_UnlockFields()">
-            <input type="submit" name="changeData" id="btnAcceptChanges" class="btn btn-primary" value="Confirm Changes" onclick="onClick_AcceptChanges()">
-        </form>
-
         <b> ADD MENU ITEM </b>
-        <form action="VIEW_adminMenu.php" method="post">
+        <form id="formAdd" action="VIEW_adminMenu.php" method="post">
             <label for="txtAddItemID">New Item ID</label>
             <input type="number" name="addItemID" id="txtAddItemID" class="w3-input" value="<?php $newItemID = $tblRow['itemID'];
                                                                                             $newItemID = $newItemID + 1;
                                                                                             echo $newItemID; ?>">
-            <input type="text" name="addItemName" id="txtAddItem" class="w3-input" placeholder=" Name..." required>
-            <input type="text" name="addItemDesc" id="txtAddDesc" class="w3-input" placeholder=" Description..." style="width: 20%" required>
-            <input type="text" name="addItemPrice" id="txtAddPrice" class="w3-input" placeholder=" Price..." required>
-            <input type="text" name="addItemStock" id="txtAddStock" class="w3-input" placeholder=" Stock..." required>
-            <input type="submit" name="insertData" id="btnAddItem" class="btn btn-primary" value="Add Item to Menu" required>
+            <input type="text" name="addItemName" id="txtAddItem" class="w3-input" placeholder="Name..." required>
+            <input type="text" name="addItemDesc" id="txtAddDesc" class="w3-input" placeholder="Description..." style="width: 20%" required>
+            <input type="text" name="addItemPrice" id="txtAddPrice" class="w3-input" placeholder="Price..." required>
+            <input type="text" name="addItemStock" id="txtAddStock" class="w3-input" placeholder="Stock..." required>
+            <input type="submit" name="addData" id="btnAddData" class="btn btn-primary" value="Add Item to Menu" required>
         </form>
+
+        <b> EDIT MENU ITEM </b>
+        <form id="formEdit" action="VIEW_adminMenu.php" method="post">
+            <input type="text" name="editItemID" id="txtEditID" class="w3-input" disabled="true" placeholder="Item ID... ">
+            <input type="text" name="editItemName" id="txtEditName" class="w3-input" disabled="true" placeholder="Item Name...">
+            <input type="text" name="editItemDesc" id="txtEditDesc" class="w3-input" disabled="true" placeholder="Item Description..." style="width: 20%">
+            <input type="text" name="editItemPrice" id="txtEditPrice" class="w3-input" disabled="true" placeholder="Item Price...">
+            <input type="text" name="editItemStock" id="txtEditStock" class="w3-input" disabled="true" placeholder="Stock...">
+            <input type="button" id="btnUnlockFields" class="btn btn-warning" disabled="true" value="Unlock Fields" onclick="onClick_UnlockFields()">
+            <input type="submit" name="editData" id="btnEditData" class="btn btn-primary" value="Confirm Changes" onclick="onClick_AcceptChanges()">
+        </form>
+
+        <b> REMOVE MENU ITEM </b>
+        <form id="formRemove" action="VIEW_adminMenu.php" method="post">
+            <input type="text" name="remItemID" id="txtRemID" class="w3-input" placeholder="ID...">
+            <input type="submit" name="deleteData" id="btnDeleteData" class="btn btn-primary" value="Confirm Removal">
+        </form>
+
 
         <input type="button" class="btn btn-danger" value="Return to Admin Portal" onclick="onClick_AdminMenu()">
 
@@ -93,5 +103,6 @@ if (isset($_POST['changeData'])) {
         txtEditName.disabled = false;
         txtEditDesc.disabled = false;
         txtEditPrice.disabled = false;
+        txtEditStock.disabled = false;
     }
 </script>

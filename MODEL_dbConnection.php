@@ -43,3 +43,57 @@ function viewOrders($tablename)
 
     return $resultSet;
 }
+
+function adminEditItem()
+{
+    $dbCon = getConnection();
+
+    $itemID = $_POST['editItemID'];
+    $itemName = $_POST['editItemName'];
+    $itemDesc = $_POST['editItemDesc'];
+    $itemPrice = $_POST['editItemPrice'];
+    $itemStock = $_POST['editItemStock'];
+
+    $dbQueury = "UPDATE trmenu SET itemName=:itemName, itemDesc=:itemDesc, itemPrice=:itemPrice, itemStock=:itemStock WHERE itemID=:itemID";
+
+    $dbOutput = $dbCon->prepare($dbQueury);
+
+    $dbOutput->execute(array(
+        ":itemID" => $itemID, ":itemName" => $itemName,
+        ":itemDesc" => $itemDesc, ":itemPrice" => $itemPrice, ":itemStock" => $itemStock
+    ));
+}
+
+function adminAddItem()
+{
+    $dbCon = getConnection();
+
+    $itemID = $_POST['addItemID'];
+    $itemName = $_POST['addItemName'];
+    $itemDesc = $_POST['addItemDesc'];
+    $itemPrice = $_POST['addItemPrice'];
+    $itemStock = $_POST['addItemStock'];
+
+    $dbQuery = "INSERT INTO trmenu (itemID, itemName, itemDesc, itemPrice, itemStock)
+        VALUES (:itemID, :itemName, :itemDesc, :itemPrice, :itemStock)";
+
+    $dbOutput = $dbCon->prepare($dbQuery);
+
+    $dbOutput->execute(array(
+        ":itemID" => $itemID, ":itemName" => $itemName,
+        ":itemDesc" => $itemDesc, ":itemPrice" => $itemPrice, ":itemStock" => $itemStock
+    ));
+}
+
+function adminDeleteItem() 
+{
+    $dbCon = getConnection();
+
+    $itemID = $_POST['remItemID'];
+
+    $dbQuery = "DELETE FROM trMenu WHERE itemID = :itemID";
+
+    $dbOutput = $dbCon->prepare($dbQuery);
+
+    $dbOutput->execute(array(":itemID" => $itemID));
+}
