@@ -7,7 +7,7 @@ if ($tblCommand) {
     $tblCols = empty($tblResults) ? array() : array_keys($tblCommand[0]);
     $tblColID = $tblCols;
 
-    foreach ($tblCommand as $tblRow) {
+    foreach ($tblCommand as $tblRow) { // For as many rows are in the table, go through this cycle and plug in values + Javascript scripts for editing, removing and adding items //
         echo '
                 <tr>
                     <td id="itemID' . $tblRow['itemID'] . '">' . $tblRow['itemID'] . '</td>

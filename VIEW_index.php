@@ -12,7 +12,7 @@
         <h1>The Cozy Tea Room</h1>
     </div>
 
-    <div class="container">
+    <div class="container"> <!-- Hoem page that shows portals to either being an Admin or Customer. -->
         <div class="row">
             <div class="col-sm-4 text-center"></div>
             <div class="col-sm-4 text-center">

@@ -18,18 +18,15 @@ include 'MODEL_dbConnection.php';
     <div class="col-sm-12 text-center">
         View and cancel current orders.
     </div>
-
-    <div class="container text-center">
+    
+    <div class="container text-center"> <!-- Admin order view -->
         <div>
             <table class="table">
                 <thead>
                     <tr>
-                        <th>Table ID</th>
                         <th>Order ID</th>
-                        <th>Item ID</th>
-                        <th>Quantity</th>
-                        <th>Item Price</th>
-                        <th>Completed</th>
+                        <th>Table ID</th>
+                        <th>Total Price</th>
                         <th>Action</th>
                     </tr>
                 </thead>
@@ -37,13 +34,9 @@ include 'MODEL_dbConnection.php';
                     <?php include_once 'CONTROLLER_adminOrder.php' ?>
                 </tbody>
             </table>
-
-            
         </div>
         <input type="button" class="btn btn-danger" value="Return to Admin Portal" onclick="onClick_AdminMenu()">
     </div>
-
-   
 
 </body>
 

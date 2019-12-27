@@ -17,67 +17,77 @@ function getConnection()
     return $dbConnection;
 }
 
-function getCustomerMenu($tablename)
+// Select specific fields from the menu table.
+function getCustomerMenu()
 {
-    $statement = getConnection()->prepare("SELECT itemID, itemName, itemDesc, itemPrice FROM " . $tablename);
-    $statement->execute();
-    $resultSet = $statement->fetchAll(PDO::FETCH_ASSOC);
+    $dbQuery = "SELECT itemID, itemName, itemDesc, itemPrice FROM menu_table";
+
+    $dbOutput = getConnection()->prepare($dbQuery);
+    $dbOutput->execute();
+    $resultSet = $dbOutput->fetchAll(PDO::FETCH_ASSOC);
 
     return $resultSet;
 }
 
-function getAdminMenu($tablename)
+// Select all fields from the menu table.
+function getAdminMenu()
 {
-    $statement = getConnection()->prepare("SELECT * FROM " . $tablename);
-    $statement->execute();
-    $resultSet = $statement->fetchAll(PDO::FETCH_ASSOC);
+    $dbQuery = "SELECT * FROM menu_table";
+
+    $dbOutput = getConnection()->prepare($dbQuery);
+    $dbOutput->execute();
+    $resultSet = $dbOutput->fetchAll(PDO::FETCH_ASSOC);
+
+    return $resultSet;
+}
+ 
+// Show all fields from order table.
+function viewOrders()
+{
+    $dbQuery = "SELECT * FROM order_table";
+
+    $dbOutput = getConnection()->prepare($dbQuery);
+    $dbOutput->execute();
+    $resultSet = $dbOutput->fetchAll(PDO::FETCH_ASSOC);
 
     return $resultSet;
 }
 
-function viewOrders($tablename)
-{
-    $statement = getConnection()->prepare("SELECT itemID, quantity, itemPrice FROM " . $tablename);
-    $statement->execute();
-    $resultSet = $statement->fetchAll(PDO::FETCH_ASSOC);
-
-    return $resultSet;
-}
-
+// Function for admins to edit items.
 function adminEditItem()
 {
-    $dbCon = getConnection();
-
-    $itemID = $_POST['editItemID'];
+    // Assign POST global variables to function variables.
+    $itemID = $_POST['editItemID']; 
     $itemName = $_POST['editItemName'];
     $itemDesc = $_POST['editItemDesc'];
     $itemPrice = $_POST['editItemPrice'];
     $itemStock = $_POST['editItemStock'];
 
-    $dbQueury = "UPDATE trmenu SET itemName=:itemName, itemDesc=:itemDesc, itemPrice=:itemPrice, itemStock=:itemStock WHERE itemID=:itemID";
+    // Create SQL query, sets changing fields.
+    $dbQuery = "UPDATE menu_table SET itemName=:itemName, itemDesc=:itemDesc, itemPrice=:itemPrice, itemStock=:itemStock WHERE itemID=:itemID"; 
 
-    $dbOutput = $dbCon->prepare($dbQueury);
+    $dbOutput = getConnection()->prepare($dbQuery);
 
-    $dbOutput->execute(array(
+    // Executes the SQL query, assigns variable values to the changing fields.
+    $dbOutput->execute(array( 
         ":itemID" => $itemID, ":itemName" => $itemName,
         ":itemDesc" => $itemDesc, ":itemPrice" => $itemPrice, ":itemStock" => $itemStock
     ));
 }
 
+// Function for admins to add items.
 function adminAddItem()
 {
-    $dbCon = getConnection();
-
     $itemID = $_POST['addItemID'];
     $itemName = $_POST['addItemName'];
     $itemDesc = $_POST['addItemDesc'];
     $itemPrice = $_POST['addItemPrice'];
     $itemStock = $_POST['addItemStock'];
 
-    $dbQuery = "INSERT INTO trmenu (itemID, itemName, itemDesc, itemPrice, itemStock)
+    $dbQuery = "INSERT INTO menu_table (itemID, itemName, itemDesc, itemPrice, itemStock)
         VALUES (:itemID, :itemName, :itemDesc, :itemPrice, :itemStock)";
 
-    $dbOutput = $dbCon->prepare($dbQuery);
+    $dbOutput = getConnection()->prepare($dbQuery);
 
     $dbOutput->execute(array(
         ":itemID" => $itemID, ":itemName" => $itemName,
@@ -85,15 +95,14 @@ function adminAddItem()
     ));
 }
 
-function adminDeleteItem() 
+// Function for admins to delete items.
+function adminDeleteItem()
 {
-    $dbCon = getConnection();
-
     $itemID = $_POST['remItemID'];
 
-    $dbQuery = "DELETE FROM trMenu WHERE itemID = :itemID";
+    $dbQuery = "DELETE FROM menu_table WHERE itemID = :itemID";
 
-    $dbOutput = $dbCon->prepare($dbQuery);
+    $dbOutput = getConnection()->prepare($dbQuery);
 
     $dbOutput->execute(array(":itemID" => $itemID));
 }

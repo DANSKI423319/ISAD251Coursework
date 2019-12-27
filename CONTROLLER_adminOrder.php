@@ -1,23 +1,19 @@
 <?php
 
-$tableName = 'trOrders';
-$tblCommand = viewOrders($tableName);
+$tblCommand = viewOrders();
 
 if ($tblCommand) {
     $tblCols = empty($tblResults) ? array() : array_keys($tblCommand[0]);
     $tblColID = $tblCols;
 
-    foreach ($tblCommand as $tblRow) {
+    foreach ($tblCommand as $tblRow) { // For as many rows are in the table, go through this cycle and plug in values. //
         echo '
             <tr>
-                <td id="tblID' . $tblRow['itemID'] . '">' . $tblRow['tableID'] . '</td>
-                <td id="orderID' . $tblRow['itemID'] . '">' . $tblRow['orderID'] . '</td>
-                <td id="itemID' . $tblRow['itemID'] . '">' . $tblRow['itemID'] . '</td>
-                <td id="qtyID' . $tblRow['itemID'] . '">' . $tblRow['quantity'] . '</td>
-                <td id="priceID' . $tblRow['itemID'] . '">£' . $tblRow['itemPrice'] . '</td>
-                <td id="completedID' . $tblRow['itemID'] . '">' . $tblRow['completed'] . '</td>
+                <td id="orderID' . $tblRow['orderID'] . '">' . $tblRow['orderID'] . '</td>
+                <td id="tblID' . $tblRow['orderID'] . '">' . $tblRow['tableID'] . '</td>
+                <td id="priceID' . $tblRow['orderID'] . '">£' . $tblRow['totalPrice'] . '</td>
                 <td>
-                <input type="button" class="btn-danger" id="btnCancel' . $tblRow['itemID'] . '" value="Cancel Order" onclick="onClick_Cancel_' . $tblRow['itemID'] . '()">
+                    <input type="button" class="btn-danger" id="btnCancel' . $tblRow['orderID'] . '" value="Cancel Order" onclick="onClick_Cancel_' . $tblRow['orderID'] . '()">
                 </td>
             </tr>
         ';

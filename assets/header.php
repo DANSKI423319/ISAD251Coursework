@@ -15,12 +15,11 @@
                 color: darkcyan;
             }
             
-            /* Form layout across application */
-            .formLayout{
+            /* Form layout */
+            .form{
                 border-radius: 5px;
                 background-color: #f2f2f2;
                 padding: 20px;
-                width: fit-content;
             }
 
             .basketFormLayout{

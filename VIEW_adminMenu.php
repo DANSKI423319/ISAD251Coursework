@@ -31,7 +31,7 @@ if (isset($_POST['deleteData'])) {
         View and ammend the menu.
     </div>
 
-    <div class="container text-center">
+    <div class="container text-center"> <!-- Admin Menu view. -->
         <div>
             <table class="table">
                 <thead>
@@ -53,7 +53,7 @@ if (isset($_POST['deleteData'])) {
     </div>
 
     <div class="text-center">
-        <b> ADD MENU ITEM </b>
+        <b> ADD MENU ITEM </b> <!-- Add item form. -->
         <form id="formAdd" action="VIEW_adminMenu.php" method="post">
             <label for="txtAddItemID">New Item ID</label>
             <input type="number" name="addItemID" id="txtAddItemID" class="w3-input" value="<?php $newItemID = $tblRow['itemID'];
@@ -66,7 +66,8 @@ if (isset($_POST['deleteData'])) {
             <input type="submit" name="addData" id="btnAddData" class="btn btn-primary" value="Add Item to Menu" required>
         </form>
 
-        <b> EDIT MENU ITEM </b>
+        
+        <b> EDIT MENU ITEM </b> <!-- Edit item form. -->
         <form id="formEdit" action="VIEW_adminMenu.php" method="post">
             <input type="text" name="editItemID" id="txtEditID" class="w3-input" disabled="true" placeholder="Item ID... ">
             <input type="text" name="editItemName" id="txtEditName" class="w3-input" disabled="true" placeholder="Item Name...">
@@ -77,12 +78,11 @@ if (isset($_POST['deleteData'])) {
             <input type="submit" name="editData" id="btnEditData" class="btn btn-primary" value="Confirm Changes" onclick="onClick_AcceptChanges()">
         </form>
 
-        <b> REMOVE MENU ITEM </b>
+        <b> REMOVE MENU ITEM </b> <!-- Remove item form. -->
         <form id="formRemove" action="VIEW_adminMenu.php" method="post">
             <input type="text" name="remItemID" id="txtRemID" class="w3-input" placeholder="ID...">
             <input type="submit" name="deleteData" id="btnDeleteData" class="btn btn-primary" value="Confirm Removal">
         </form>
-
 
         <input type="button" class="btn btn-danger" value="Return to Admin Portal" onclick="onClick_AdminMenu()">
 

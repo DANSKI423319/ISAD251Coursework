@@ -15,12 +15,13 @@ include_once 'MODEL_dbConnection.php';
         <h2>The Cozy Tea Room: Menu</h2>
     </div>
 
-    <div class="col-sm-12 text-center">
-        <?php echo "Your order is assigned to table number<b> " . $_GET["tableNumber"] . ".</b>"; ?>
-    </div>
+    <form action="VIEW_customerOrder.php" method="post">
+        <div class="col-sm-12 text-center">
+            Your table number is:
+            <input type="text" name="tableNumber2" value="<?php echo $_GET["tableNumber"]; ?>" class="w3-input" readonly>
+        </div>
 
-    <div class="container">
-        <form action="VIEW_customerOrder.php" method="GET">
+        <div class="container"> <!-- Customer menu view. -->
             <table class="table">
                 <thead>
                     <tr>
@@ -36,12 +37,19 @@ include_once 'MODEL_dbConnection.php';
                     <?php require 'CONTROLLER_customerMenuLoader.php'; ?></br>
                 </tbody>
             </table>
-            <b>TOTAL: £ <input type="text" id="totalPrice" name="totalPrice" class="w3-input" disabled></b></br></br>
+            <b>TOTAL: £ <input type="text" id="totalPrice" name="totalPrice" class="w3-input" readonly></b></br></br>
             <b><input type="submit" name="order" value="Proceed" class="btn btn-primary"></b>
-        </form>
+    </form>
 
-        <input type="button" class="btn btn-danger" value="Return to Table Select" onclick="onClick_TableSel()">
+</br></br>
+
+    <input type="button" class="btn btn-danger" value="Return to Table Select" onclick="onClick_TableSel()">
+    <input type="button" class="btn btn-basic" value="test" onclick="onClick_Test()">
+
+    <ul class="list-group" id="listTest"></ul>
     </div>
+
+    
 </body>
 
 </html>
@@ -50,5 +58,20 @@ include_once 'MODEL_dbConnection.php';
     function onClick_TableSel() {
         window.location.href = "VIEW_customerIndex.php";
         window.location.replace = ("VIEW_customerIndex.php");
+    }
+
+    var txtjeff;
+
+    function onClick_Test() {
+        addToList("Test");
+    }
+
+    function addToList(txtTest) {
+        listID = document.getElementById('listTest'),
+        listElement = document.createElement("LI"),
+        listInput = document.createTextNode(txtTest);
+
+        listElement.appendChild(listInput);
+        listID.appendChild(listElement);
     }
 </script>
