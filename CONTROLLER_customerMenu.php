@@ -1,8 +1,6 @@
 <?php
-
-$list = 'listTest';
-$tableName = 'trMenu';
-$tblCommand = getCustomerMenu();
+$dbQuery = "CALL customerMenu";
+$tblCommand = getMenu($dbQuery);
 
 if ($tblCommand) {
     $tblCols = empty($tblResults) ? array() : array_keys($tblCommand[0]);
@@ -47,26 +45,16 @@ if ($tblCommand) {
                     itemQty_' . $tblRow['itemID'] . '.value = numQty_' . $tblRow['itemID'] . ';
                     total = total - ' . $tblRow['itemPrice'] . ';
                     totalPrice.value = total.toFixed(2);
-                if (totalPrice.value < 0) {
+                if (totalPrice.value < -0.00) {
                     numQty_' . $tblRow['itemID'] . ' = 0.00;
                     itemQty_' . $tblRow['itemID'] . '.value = numQty_' . $tblRow['itemID'] . ';
                     totalPrice.value = "0.00";
                     alert("ERROR: Cannot have minus products.");
                 }
             }
-
-            function addToList(txtTest) {
-                listID = document.getElementById(' . $list . '),
-                listElement = document.createElement("LI"),
-                listInput = document.createTextNode(txtTest);
-        
-                listElement.appendChild(listInput);
-                listID.appendChild(listElement);
-            }
                 
                 </script>
+
             ';
     }
 }
-
-?>

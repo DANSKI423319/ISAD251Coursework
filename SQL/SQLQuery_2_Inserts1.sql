@@ -1,13 +1,13 @@
 INSERT INTO menu_table (itemID, itemName, itemDesc, itemPrice, ItemStock)
-VALUES (1, 'Cappucino', 'Italian espress coffee', 2.75, 100);
+VALUES (1, 'Cappucino', 'Italian espresso coffee', 2.79, 100);
 INSERT INTO menu_table (itemID, itemName, itemDesc, itemPrice, ItemStock)
-VALUES (2, 'Latte', 'Milky coffee', 2.75, 100);
+VALUES (2, 'Latte', 'Milky coffee', 2.79, 100);
 INSERT INTO menu_table (itemID, itemName, itemDesc, itemPrice, ItemStock)
-VALUES (3, 'Flat white', 'Coffee rich and foam topped coffee', 2.75, 100);
+VALUES (3, 'Flat white', 'Rich and foam topped coffee', 2.79, 100);
 INSERT INTO menu_table (itemID, itemName, itemDesc, itemPrice, ItemStock)
-VALUES (4, 'Tea', 'A classic cuppa', 2.75, 100);
+VALUES (4, 'Tea', 'Classic british cuppa', 2.79, 100);
 INSERT INTO menu_table (itemID, itemName, itemDesc, itemPrice, ItemStock)
-VALUES (5, 'Hot chocolate', 'Warm and sweet chocolate drink, topped with mini marshmellows', 2.10, 100);
+VALUES (5, 'Hot chocolate', 'Warm and sweet chocolate drink, topped with mini marshmallows', 2.10, 100);
 INSERT INTO menu_table (itemID, itemName, itemDesc, itemPrice, ItemStock)
 VALUES (6, 'Lemon sponge cake', 'Moist sponge cake, topped with lemon icing and caster sugar', 3.10, 12);
 INSERT INTO menu_table (itemID, itemName, itemDesc, itemPrice, ItemStock)

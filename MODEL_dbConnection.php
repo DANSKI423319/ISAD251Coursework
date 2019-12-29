@@ -17,59 +17,69 @@ function getConnection()
     return $dbConnection;
 }
 
-// Select specific fields from the menu table.
-function getCustomerMenu()
+// Used by admins and customers, 
+// dbQuery value swapped for different procedure calls that have specific (or all) fields from the menu table.
+function getMenu($dbQuery)
 {
-    $dbQuery = "SELECT itemID, itemName, itemDesc, itemPrice FROM menu_table";
-
     $dbOutput = getConnection()->prepare($dbQuery);
     $dbOutput->execute();
+    
     $resultSet = $dbOutput->fetchAll(PDO::FETCH_ASSOC);
-
     return $resultSet;
 }
 
-// Select all fields from the menu table.
-function getAdminMenu()
-{
-    $dbQuery = "SELECT * FROM menu_table";
-
-    $dbOutput = getConnection()->prepare($dbQuery);
-    $dbOutput->execute();
-    $resultSet = $dbOutput->fetchAll(PDO::FETCH_ASSOC);
-
-    return $resultSet;
-}
- 
 // Show all fields from order table.
-function viewOrders()
+function getOrders()
 {
-    $dbQuery = "SELECT * FROM order_table";
-
+    $dbQuery = "CALL viewOrders";
     $dbOutput = getConnection()->prepare($dbQuery);
     $dbOutput->execute();
-    $resultSet = $dbOutput->fetchAll(PDO::FETCH_ASSOC);
 
+    $resultSet = $dbOutput->fetchAll(PDO::FETCH_ASSOC);
     return $resultSet;
+}
+
+// Used to print all order IDs, and to get a new one for the customer menu.
+function getOrderNo()
+{
+    $dbQuery = "SELECT orderID FROM order_table"; 
+    $dbOutput = getConnection()->prepare($dbQuery);
+    $dbOutput->execute();
+    
+    $resultSet = $dbOutput->fetchAll(PDO::FETCH_ASSOC);
+    return $resultSet;
+}
+
+// Function to place an order (to order_table, this is the order without items)
+function customerPlaceOrder() {
+    $orderID = $_POST['newOrderID'];
+    $tableID = $_POST['newTableID'];
+    $totalPrice = $_POST['newTotalPrice'];
+
+    $dbQuery = "CALL customerPlaceOrder(:orderID, :tableID, :totalPrice)";
+    $dbOutput = getConnection()->prepare($dbQuery);
+
+    $dbOutput->execute(array(
+        ":orderID" => $orderID, ":tableID" => $tableID, ":totalPrice" => $totalPrice
+    ));
 }
 
 // Function for admins to edit items.
 function adminEditItem()
 {
     // Assign POST global variables to function variables.
-    $itemID = $_POST['editItemID']; 
+    $itemID = $_POST['editItemID'];
     $itemName = $_POST['editItemName'];
     $itemDesc = $_POST['editItemDesc'];
     $itemPrice = $_POST['editItemPrice'];
     $itemStock = $_POST['editItemStock'];
 
-    // Create SQL query, sets changing fields.
-    $dbQuery = "UPDATE menu_table SET itemName=:itemName, itemDesc=:itemDesc, itemPrice=:itemPrice, itemStock=:itemStock WHERE itemID=:itemID"; 
-
+    // Create SQL query, sets changing fields/parameters.
+    $dbQuery = "CALL adminEditItem(:itemName, :itemDesc, :itemPrice, :itemStock, :itemID)";
     $dbOutput = getConnection()->prepare($dbQuery);
 
     // Executes the SQL query, assigns variable values to the changing fields.
-    $dbOutput->execute(array( 
+    $dbOutput->execute(array(
         ":itemID" => $itemID, ":itemName" => $itemName,
         ":itemDesc" => $itemDesc, ":itemPrice" => $itemPrice, ":itemStock" => $itemStock
     ));
@@ -84,9 +94,7 @@ function adminAddItem()
     $itemPrice = $_POST['addItemPrice'];
     $itemStock = $_POST['addItemStock'];
 
-    $dbQuery = "INSERT INTO menu_table (itemID, itemName, itemDesc, itemPrice, itemStock)
-        VALUES (:itemID, :itemName, :itemDesc, :itemPrice, :itemStock)";
-
+    $dbQuery = "CALL adminAddItem(:itemID, :itemName, :itemDesc, :itemPrice, :itemStock)";
     $dbOutput = getConnection()->prepare($dbQuery);
 
     $dbOutput->execute(array(
@@ -100,9 +108,11 @@ function adminDeleteItem()
 {
     $itemID = $_POST['remItemID'];
 
-    $dbQuery = "DELETE FROM menu_table WHERE itemID = :itemID";
-
+    $dbQuery = "CALL adminDeleteItem(:itemID)";
     $dbOutput = getConnection()->prepare($dbQuery);
 
-    $dbOutput->execute(array(":itemID" => $itemID));
+    $dbOutput->execute(array(
+        ":itemID" => $itemID
+    ));
 }
+

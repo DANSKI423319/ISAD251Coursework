@@ -58,7 +58,7 @@ if (isset($_POST['deleteData'])) {
             <label for="txtAddItemID">New Item ID</label>
             <input type="number" name="addItemID" id="txtAddItemID" class="w3-input" value="<?php $newItemID = $tblRow['itemID'];
                                                                                             $newItemID = $newItemID + 1;
-                                                                                            echo $newItemID; ?>">
+                                                                                            echo $newItemID; ?>" readonly>
             <input type="text" name="addItemName" id="txtAddItem" class="w3-input" placeholder="Name..." required>
             <input type="text" name="addItemDesc" id="txtAddDesc" class="w3-input" placeholder="Description..." style="width: 20%" required>
             <input type="text" name="addItemPrice" id="txtAddPrice" class="w3-input" placeholder="Price..." required>
@@ -66,10 +66,9 @@ if (isset($_POST['deleteData'])) {
             <input type="submit" name="addData" id="btnAddData" class="btn btn-primary" value="Add Item to Menu" required>
         </form>
 
-        
         <b> EDIT MENU ITEM </b> <!-- Edit item form. -->
         <form id="formEdit" action="VIEW_adminMenu.php" method="post">
-            <input type="text" name="editItemID" id="txtEditID" class="w3-input" disabled="true" placeholder="Item ID... ">
+            <input type="text" name="editItemID" id="txtEditID" class="w3-input" disabled="true" placeholder="Item ID... " readonly>
             <input type="text" name="editItemName" id="txtEditName" class="w3-input" disabled="true" placeholder="Item Name...">
             <input type="text" name="editItemDesc" id="txtEditDesc" class="w3-input" disabled="true" placeholder="Item Description..." style="width: 20%">
             <input type="text" name="editItemPrice" id="txtEditPrice" class="w3-input" disabled="true" placeholder="Item Price...">

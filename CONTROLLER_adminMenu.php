@@ -1,7 +1,6 @@
 <?php
-
-$tableName = 'trMenu';
-$tblCommand = getAdminMenu($tableName);
+$dbQuery = "CALL adminMenu";
+$tblCommand = getMenu($dbQuery);
 
 if ($tblCommand) {
     $tblCols = empty($tblResults) ? array() : array_keys($tblCommand[0]);
