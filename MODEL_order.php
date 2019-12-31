@@ -1,23 +1,22 @@
 <?php
 
-class orderItems
+class order
 {
-
     private $tableID;
     private $orderID;
-    private $itemID;
-    private $quantity;
-    private $itemPrice;
-    private $completed;
+    private $totalPrice;
 
-    public function __construct($tableID, $orderID, $itemID, $quantity, $itemPrice, $completed)
+    public function __construct($orderID, $tableID, $totalPrice)
     {
-        $this->tableID = $tableID;
         $this->orderID = $orderID;
-        $this->itemID = $itemID;
-        $this->quantity = $quantity;
-        $this->itemPrice = $itemPrice;
-        $this->completed = $completed;
+        $this->tableID = $tableID;
+        $this->totalPrice = $totalPrice;
+    }
+
+    // GETS
+    public function getOrderID()
+    {
+        return $this->orderID;
     }
 
     public function getTableID()
@@ -25,58 +24,24 @@ class orderItems
         return $this->tableID;
     }
 
-    public function setTableID($tableID)
+    public function getTotalPrice()
     {
-        $this->tableID = $tableID;
+        return $this->totalPrice;
     }
 
-    public function getOrderID()
-    {
-        return $this->orderID;
-    }
-
+    // SETS
     public function setOrderID($orderID)
     {
         $this->orderID = $orderID;
     }
 
-    public function getItemID()
+    public function setTableID($tableID)
     {
-        return $this->itemID;
+        $this->tableID = $tableID;
     }
 
-    public function setItemID($itemID)
+    public function setTotalPrice($totalPrice)
     {
-        $this->itemID = $itemID;
-    }
-
-    public function getQuantity()
-    {
-        return $this->quantity;
-    }
-
-    public function setQuantity($quantity)
-    {
-        $this->quantity = $quantity;
-    }
-
-    public function getItemPrice()
-    {
-        return $this->itemPrice;
-    }
-
-    public function setItemPrice($itemPrice)
-    {
-        $this->itemPrice = $itemPrice;
-    }
-
-    public function getCompleted()
-    {
-        return $this->compelted;
-    }
-
-    public function setCompleted($completed)
-    {
-        $this->completed = $completed;
+        $this->totalPrice = $totalPrice;
     }
 }

@@ -1,9 +1,16 @@
 <?php
-include_once 'assets/header.php';
-include_once 'MODEL_dbConnection.php';
+include 'assets/header.php';
+include 'MODEL_dbConnection.php';
+
+$databank = new databank();
 
 if (isset($_POST['placeOrder'])) {
-    customerPlaceOrder();
+    $tableID = $_POST['newTableID'];
+    $orderID = $_POST['newOrderID'];
+    $totalPrice = $_POST['newTotalPrice'];
+    $newOrder = new order($tableID, $orderID, $totalPrice);
+
+    $databank->customerPlaceOrder($newOrder);
 }
 
 ?>
@@ -11,7 +18,9 @@ if (isset($_POST['placeOrder'])) {
 <html>
 
 <head>
-    <title>The Cozy Tea Room</title>
+    <title>
+        The Cozy Tea Room
+    </title>
 </head>
 
 <body>
@@ -26,7 +35,8 @@ if (isset($_POST['placeOrder'])) {
             <input type="text" name="newTableID" value="<?php echo $_GET["tableNumber"]; ?>" class="w3-input" readonly>
         </div>
 
-        <div class="container"> <!-- Customer menu view. -->
+        <div class="container">
+            <!-- Customer menu view. -->
             <table class="table">
                 <thead>
                     <tr>
@@ -42,21 +52,17 @@ if (isset($_POST['placeOrder'])) {
                     <?php require 'CONTROLLER_customerMenu.php'; ?></br>
                 </tbody>
             </table>
-            <div hidden="true"><?php require 'CONTROLLER_customerOrderID.php'; ?></div>
-            <b>TOTAL: £ <input type="text" name="newTotalPrice" id="totalPrice" class="w3-input" placeholder="0.00" readonly></b>
-            <b>ORDER ID: <input type="number" name="newOrderID" id="txtNextOrderID" class="w3-input" value="<?php $newItemID = $tblRow['orderID'];
-                                                                                            $newItemID = $newItemID + 1;
-                                                                                            echo $newItemID; ?>" readonly></b></br></br>
+            <div hidden><?php require 'CONTROLLER_customerOrderID.php'; ?></div>
+            <b>TOTAL: £ <input type="text" id="totalPrice" name="newTotalPrice" class="w3-input" placeholder="0.00" readonly></b>
+            <b>ORDER ID: <input type="number" id="txtNextOrderID" name="newOrderID" class="w3-input" value="<?php $newItemID = $tblRow['orderID'];
+                                                                                                            $newItemID = $newItemID + 1;
+                                                                                                            echo $newItemID; ?>" readonly></b></br></br>
             <b><input type="submit" name="placeOrder" value="Proceed" class="btn btn-primary"></b>
     </form>
-
-</br></br>
-
+    </br></br>
     <input type="button" class="btn btn-danger" value="Return to Table Select" onclick="onClick_TableSel()">
-
     </div>
 
-    
 </body>
 
 </html>
@@ -67,10 +73,7 @@ if (isset($_POST['placeOrder'])) {
         window.location.replace = ("VIEW_customerIndex.php");
     }
 
-    var txtjeff;
-
-    function onClick_Test() {
-        addToList("Test");
+    function onClick_OrderAlert() {
+        Alert("Your order has been placed, your order number is: ! Returning you to table select screen.");
     }
 </script>
-

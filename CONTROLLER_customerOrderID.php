@@ -1,6 +1,6 @@
 <?php
-include_once 'MODEL_dbConnection.php';
-$tblCommand = getOrderNo();
+$databank = new databank();
+$tblCommand = $databank->getOrderNo();
 
 if ($tblCommand) {
     $tblCols = empty($tblResults) ? array() : array_keys($tblCommand[0]);

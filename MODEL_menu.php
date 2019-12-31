@@ -1,8 +1,7 @@
 <?php
 
-class menuItems
+class menuItem
 {
-
     private $itemID;
     private $itemName;
     private $itemDesc;
@@ -18,14 +17,10 @@ class menuItems
         $this->itemStock = $itemStock;
     }
 
+    // GETS
     public function getItemID()
     {
         return $this->itemID;
-    }
-
-    public function setItemID($itemID)
-    {
-        $this->itemID = $itemID;
     }
 
     public function getItemName()
@@ -33,19 +28,9 @@ class menuItems
         return $this->itemName;
     }
 
-    public function setItemName($itemName)
-    {
-        $this->itemName = $itemName;
-    }
-
     public function getItemDesc()
     {
         return $this->itemDesc;
-    }
-
-    public function setItemDesc($itemDesc)
-    {
-        $this->itemDesc = $itemDesc;
     }
 
     public function getItemPrice()
@@ -53,14 +38,30 @@ class menuItems
         return $this->itemPrice;
     }
 
-    public function setItemPrice($itemPrice)
-    {
-        $this->itemPrice = $itemPrice;
-    }
-
     public function getItemStock()
     {
         return $this->itemStock;
+    }
+
+    // SETS
+    public function setItemID($itemID)
+    {
+        $this->itemID = $itemID;
+    }
+
+    public function setItemName($itemName)
+    {
+        $this->itemName = $itemName;
+    }
+
+    public function setItemDesc($itemDesc)
+    {
+        $this->itemDesc = $itemDesc;
+    }
+
+    public function setItemPrice($itemPrice)
+    {
+        $this->itemPrice = $itemPrice;
     }
 
     public function setItemStock($itemStock)

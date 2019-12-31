@@ -1,6 +1,7 @@
 <?php
+$databank = new databank();
 $dbQuery = "CALL customerMenu";
-$tblCommand = getMenu($dbQuery);
+$tblCommand = $databank->getMenu($dbQuery);
 
 if ($tblCommand) {
     $tblCols = empty($tblResults) ? array() : array_keys($tblCommand[0]);
@@ -22,8 +23,7 @@ if ($tblCommand) {
                     </td>
                 </tr>
             
-                <script language="javaScript">
-
+                <script>
                 // Add item to order.
                 var total = 0.00;
                 var numQty_' . $tblRow['itemID'] . ' = 0;
@@ -52,9 +52,7 @@ if ($tblCommand) {
                     alert("ERROR: Cannot have minus products.");
                 }
             }
-                
                 </script>
-
             ';
     }
 }

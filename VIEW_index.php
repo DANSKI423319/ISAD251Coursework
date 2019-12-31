@@ -1,9 +1,14 @@
+<?php
+include 'assets/header.php';
+include 'MODEL_dbConnection.php'
+?>
+
 <html>
 
 <head>
-    <title>The Cozy Tea Room</title>
-    <?php include 'assets/header.php';
-    ?>
+    <title>
+        The Cozy Tea Room
+    </title>
 </head>
 
 <body>
@@ -12,7 +17,8 @@
         <h1>The Cozy Tea Room</h1>
     </div>
 
-    <div class="container"> <!-- Hoem page that shows portals to either being an Admin or Customer. -->
+    <div class="container">
+        <!-- Hoem page that shows portals to either being an Admin or Customer. -->
         <div class="row">
             <div class="col-sm-4 text-center"></div>
             <div class="col-sm-4 text-center">

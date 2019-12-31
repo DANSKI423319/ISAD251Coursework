@@ -1,6 +1,7 @@
 <?php
+$databank = new databank();
 $dbQuery = "CALL adminMenu";
-$tblCommand = getMenu($dbQuery);
+$tblCommand = $databank->getMenu($dbQuery);
 
 if ($tblCommand) {
     $tblCols = empty($tblResults) ? array() : array_keys($tblCommand[0]);
@@ -20,8 +21,7 @@ if ($tblCommand) {
                     </td>
                 </tr>
 
-                <script language="javaScript">
-
+                <script>
                     function onClick_EditItem_' . $tblRow['itemID'] . '() {
                         txtEditID.value = itemID' . $tblRow['itemID'] . '.innerText;
                         txtEditName.value = nameID' . $tblRow['itemID'] . '.innerText;

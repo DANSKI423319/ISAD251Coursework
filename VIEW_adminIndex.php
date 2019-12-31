@@ -1,20 +1,24 @@
 <?php
 include 'assets/header.php';
+include 'MODEL_dbConnection.php'
+
 ?>
 
 <html>
 
 <head>
-    <title>The Cozy Tea Room</title>
+    <title>
+        The Cozy Tea Room
+    </title>
 </head>
 
+<!-- Admin home, contains buttons to other locations. -->
 <body>
 
     <div class="jumbotron text-center">
         <h1>The Cozy Tea Room: Admin Portal</h1>
     </div>
 
-    <!-- Admin home, contains buttons to other locations. -->
     <div class="container">
         <div class="row">
             <div class="col-sm-4 text-center"></div>

@@ -2,25 +2,49 @@
 include 'assets/header.php';
 include 'MODEL_dbConnection.php';
 
-if (isset($_POST['addData'])) {
-    adminAddItem();
+$databank = new databank();
+
+// Function to begin addition of data.
+if (isset($_POST['btnAddData'])) {
+    $itemID = $_POST['addItemID'];
+    $itemName = $_POST['addItemName'];
+    $itemDesc = $_POST['addItemDesc'];
+    $itemPrice = $_POST['addItemPrice'];
+    $itemStock = $_POST['addItemStock'];
+    $newMenuItem = new menuItem($itemID, $itemName, $itemDesc, $itemPrice, $itemStock);
+
+    $databank->adminAddItem($newMenuItem);
 }
 
-if (isset($_POST['editData'])) {
-    adminEditItem();
+// Function to begin edit of data.
+if (isset($_POST['btnEditData'])) {
+    $itemID = $_POST['editItemID'];
+    $itemName = $_POST['editItemName'];
+    $itemDesc = $_POST['editItemDesc'];
+    $itemPrice = $_POST['editItemPrice'];
+    $itemStock = $_POST['editItemStock'];
+    $editedMenuItem = new menuItem($itemID, $itemName, $itemDesc, $itemPrice, $itemStock);
+
+    $databank->adminEditItem($editedMenuItem);
 }
 
-if (isset($_POST['deleteData'])) {
-    adminDeleteItem();
+// Function to begin deletion of data.
+if (isset($_POST['btnDeleteData'])) {
+    $itemID = $_POST['remItemID'];
+
+    $databank->adminDeleteItem($itemID);
 }
 ?>
 
 <html>
 
 <head>
-    <title>The Cozy Team Room</title>
+    <title>
+        The Cozy Team Room
+    </title>
 </head>
 
+<!-- Admin Menu view, contains multiple forms for editing, adding and removing from the menu. -->
 <body>
 
     <div class="container text-center">
@@ -31,7 +55,7 @@ if (isset($_POST['deleteData'])) {
         View and ammend the menu.
     </div>
 
-    <div class="container text-center"> <!-- Admin Menu view. -->
+    <div class="container text-center">
         <div>
             <table class="table">
                 <thead>
@@ -63,7 +87,7 @@ if (isset($_POST['deleteData'])) {
             <input type="text" name="addItemDesc" id="txtAddDesc" class="w3-input" placeholder="Description..." style="width: 20%" required>
             <input type="text" name="addItemPrice" id="txtAddPrice" class="w3-input" placeholder="Price..." required>
             <input type="text" name="addItemStock" id="txtAddStock" class="w3-input" placeholder="Stock..." required>
-            <input type="submit" name="addData" id="btnAddData" class="btn btn-primary" value="Add Item to Menu" required>
+            <input type="submit" name="btnAddData" class="btn btn-primary" value="Add Item to Menu" required>
         </form>
 
         <b> EDIT MENU ITEM </b> <!-- Edit item form. -->
@@ -74,13 +98,13 @@ if (isset($_POST['deleteData'])) {
             <input type="text" name="editItemPrice" id="txtEditPrice" class="w3-input" disabled="true" placeholder="Item Price...">
             <input type="text" name="editItemStock" id="txtEditStock" class="w3-input" disabled="true" placeholder="Stock...">
             <input type="button" id="btnUnlockFields" class="btn btn-warning" disabled="true" value="Unlock Fields" onclick="onClick_UnlockFields()">
-            <input type="submit" name="editData" id="btnEditData" class="btn btn-primary" value="Confirm Changes" onclick="onClick_AcceptChanges()">
+            <input type="submit" name="btnEditData" id="btnEditData" class="btn btn-primary" value="Confirm Changes" onclick="onClick_AcceptChanges()">
         </form>
 
         <b> REMOVE MENU ITEM </b> <!-- Remove item form. -->
         <form id="formRemove" action="VIEW_adminMenu.php" method="post">
-            <input type="text" name="remItemID" id="txtRemID" class="w3-input" placeholder="ID...">
-            <input type="submit" name="deleteData" id="btnDeleteData" class="btn btn-primary" value="Confirm Removal">
+            <input type="number" name="remItemID" id="txtRemID" class="w3-input" placeholder="ID..." readonly>
+            <input type="submit" name="btnDeleteData" id="btnDeleteData" class="btn btn-primary" value="Confirm Removal">
         </form>
 
         <input type="button" class="btn btn-danger" value="Return to Admin Portal" onclick="onClick_AdminMenu()">
@@ -91,7 +115,7 @@ if (isset($_POST['deleteData'])) {
 
 </html>
 
-<script language="javaScript">
+<script>
     function onClick_AdminMenu() {
         window.location.href = "VIEW_adminIndex.php";
         window.location.replace = ("VIEW_adminIndex.php");

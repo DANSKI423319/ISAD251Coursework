@@ -1,14 +1,26 @@
 <?php
 include 'assets/header.php';
 include 'MODEL_dbConnection.php';
+
+$databank = new databank();
+
+// Function to delete an order.
+if (isset($_POST['btnDeleteOrder'])) {
+    $orderID = $_POST['delOrderID'];
+
+    $databank->adminDeleteOrder($orderID);
+}
 ?>
 
 <html>
 
 <head>
-    <title>The Cozy Tea Room</title>
+    <title>
+        The Cozy Tea Room
+    </title>
 </head>
 
+<!-- Admin order table view that gives viewing access to all past and current orders -->
 <body>
 
     <div class="container text-center">
@@ -20,23 +32,26 @@ include 'MODEL_dbConnection.php';
     </div>
 
     <div class="container text-center">
-        <!-- Admin order view -->
         <table class="table">
             <thead>
                 <tr>
                     <th>Order ID</th>
                     <th>Table ID</th>
-                    <th>Item No.</th>
+                    <th>Price</th>                   
+               <!-- <th>Item No.</th>
                     <th>Item ID</th>
-                    <th>Price</th>
-                    <th>Quantity</th>
+                    <th>Quantity</th> -->
                     <th>Action</th>
                 </tr>
             </thead>
             <tbody>
-                <?php include_once 'CONTROLLER_adminOrder.php' ?>
+                <?php include_once 'CONTROLLER_adminOrders.php' ?>
             </tbody>
         </table>
+        <form id="formOrderRemove" action="VIEW_adminOrders.php" method="post">
+            <input type="number" name="delOrderID" id="txtDeleteOrder" class="w3-input" placeholder="ID..." readonly>
+            <input type="submit" name="btnDelOrder" id="btnDeleteOrder" class="btn btn-primary" value="Confirm Removal">
+        </form>
         </br></br>
         <input type="button" class="btn btn-danger" value="Return to Admin Portal" onclick="onClick_AdminMenu()">
     </div>
@@ -45,7 +60,7 @@ include 'MODEL_dbConnection.php';
 
 </html>
 
-<script language="javaScript">
+<script>
     function onClick_AdminMenu() {
         window.location.href = "VIEW_adminIndex.php";
         window.location.replace = ("VIEW_adminIndex.php");
