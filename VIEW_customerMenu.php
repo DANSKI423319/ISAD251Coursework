@@ -38,7 +38,7 @@ if (isset($_POST['placeOrder'])) {
     <form id="formPlaceOrder" action="VIEW_customerMenu.php" method="post">
         <div class="col-sm-12 text-center">
             Your table number is:
-            <input type="number" name="newTableID" value="<?php echo $_GET['tableNumber'] ?>" class="w3-input">
+            <input type="number" name="newTableID" value="<?php echo $_GET['tableNumber'] ?>" class="w3-input" readonly>
         </div>
 
         <div class="container">
