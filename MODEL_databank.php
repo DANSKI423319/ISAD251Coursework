@@ -1,5 +1,5 @@
 <?php
-include 'MODEL_menu.php';
+include 'MODEL_menuItem.php';
 include 'MODEL_order.php';
 include 'MODEL_orderItems.php';
 

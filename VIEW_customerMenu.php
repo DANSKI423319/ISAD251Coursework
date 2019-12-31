@@ -1,16 +1,22 @@
 <?php
 include 'assets/header.php';
-include 'MODEL_dbConnection.php';
+include 'MODEL_databank.php';
 
 $databank = new databank();
 
 if (isset($_POST['placeOrder'])) {
-    $tableID = $_POST['newTableID'];
     $orderID = $_POST['newOrderID'];
+    $tableID = $_POST['newTableID'];
     $totalPrice = $_POST['newTotalPrice'];
-    $newOrder = new order($tableID, $orderID, $totalPrice);
+    $newOrder = new order($orderID, $tableID, $totalPrice);
 
     $databank->customerPlaceOrder($newOrder);
+    ?> <script> 
+            alert("YOUR ORDER HAS BEEN PLACED! ID: <?php echo $orderID; ?> / TABLE: <?php echo $tableID; ?> / PRICE: £<?php echo $totalPrice; ?>")
+            window.location.href = "VIEW_customerIndex.php";
+            window.location.replace = ("VIEW_customerIndex.php");
+        </script> 
+    <?php
 }
 
 ?>
@@ -32,7 +38,7 @@ if (isset($_POST['placeOrder'])) {
     <form id="formPlaceOrder" action="VIEW_customerMenu.php" method="post">
         <div class="col-sm-12 text-center">
             Your table number is:
-            <input type="text" name="newTableID" value="<?php echo $_GET["tableNumber"]; ?>" class="w3-input" readonly>
+            <input type="number" name="newTableID" value="<?php echo $_GET['tableNumber'] ?>" class="w3-input">
         </div>
 
         <div class="container">

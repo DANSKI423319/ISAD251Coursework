@@ -1,6 +1,6 @@
 <?php
 include 'assets/header.php';
-include 'MODEL_dbConnection.php';
+include 'MODEL_databank.php';
 
 $databank = new databank();
 
