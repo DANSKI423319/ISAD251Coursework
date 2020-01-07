@@ -5,7 +5,7 @@ include 'MODEL_databank.php';
 $databank = new databank();
 
 // Function to delete an order.
-if (isset($_POST['btnDeleteOrder'])) {
+if (isset($_POST['btnDelOrder'])) {
     $orderID = $_POST['delOrderID'];
 
     $databank->adminDeleteOrder($orderID);

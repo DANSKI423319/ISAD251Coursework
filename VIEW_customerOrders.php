@@ -1,6 +1,15 @@
 <?php
 include 'assets/header.php';
 include 'MODEL_databank.php';
+
+$databank = new databank();
+
+if (isset($_POST['btnSearch'])) {
+    $orderID = $_POST['searchID'];
+
+    $databank->adminDeleteOrder($orderID);
+}
+
 ?>
 
 <html>
@@ -20,8 +29,8 @@ include 'MODEL_databank.php';
     <div class="container text-center">
         <form action="VIEW_customerOrders.php" class="form" method="GET">
             <label for="orderInput">Order ID:</label></br>
-            <input type="number" name="orderNumber" class="small-text" placeholder="###" id="orderInput" min=0 required>
-            <input type="submit" name="search" class="btn btn-primary" value="Find Order">
+            <input type="number" name="searchID" class="small-text" placeholder="###" id="orderInput" min=0 required>
+            <input type="submit" name="btnSearch" class="btn btn-primary" value="Find Order">
         </form>
         <div>
             <table class="table">
@@ -30,18 +39,13 @@ include 'MODEL_databank.php';
                         <th>Order ID</th>
                         <th>Table ID</th>
                         <th>Item No.</th>
-                        <!-- <th>Item ID</th>
-                    <th>Price</th>
-                    <th>Quantity</th>
-                    <th>Action</th> -->
                     </tr>
                 </thead>
                 <tbody>
                     <?php
-                    // Function not working.
-                    // if (isset($_POST['search'])) {
-                    //     include 'CONTROLLER_customerOrders.php';
-                    // } 
+                    if (isset($_POST['btnSearch'])) {
+                        include 'CONTROLLER_customerOrders.php';
+                    }
                     ?>
                 </tbody>
             </table>

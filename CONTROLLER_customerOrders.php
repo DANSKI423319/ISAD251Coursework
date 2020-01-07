@@ -1,6 +1,6 @@
 <?php
 $databank = new databank();
-// $tblCommand = $databank->searchOrders();
+$tblCommand = $databank->searchOrders($orderID);
 
 if ($tblCommand) {
     $tblCols = empty($tblResults) ? array() : array_keys($tblCommand[0]);

@@ -126,7 +126,7 @@ class databank
         $dbOutput->execute();
     }
 
-    // Function for admins to delete/cancel orders. NOT WORKING.
+    // Function for admins to delete/cancel orders.
     public function adminDeleteOrder($orderID)
     {
         $dbQuery = "CALL adminDeleteOrder(:orderID)";
@@ -136,19 +136,13 @@ class databank
         $dbOutput->execute();
     }
 
-    // NOT WORKING.
-    // function searchOrders()
-    // {
-    //     $orderID = $_POST['orderNumber'];
+    // Function to find orders with an order id. NOT WORKING.
+    function searchOrders($orderID)
+    {
+        $dbQuery = "CALL customerViewOrder(:orderID)";
+        $dbOutput = $this->dbConnection->prepare($dbQuery);
 
-    //     $dbQuery = "CALL customerViewOrder(:orderID)";
-    //     $dbOutput = getConnection()->prepare($dbQuery);
-
-    //     $dbOutput->execute(array(
-    //         ":orderID" => $orderID
-    //     ));
-
-    //     $resultSet = $dbOutput->fetchAll(PDO::FETCH_ASSOC);
-    //     return $resultSet;
-    // }
+        $dbOutput->bindParam(':orderID', $orderID, PDO::PARAM_INT);
+        $dbOutput->execute();
+    }
 }
