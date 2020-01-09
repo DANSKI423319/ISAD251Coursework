@@ -12,6 +12,7 @@ class databank
     private $dbConnection;
     private $dataSourceName;
 
+    // Function to create connection to database/'databank'.
     public function __construct(PDO $dbConnection = null)
     {
         $this->dataSourceName = 'mysql:dbname=' . $this->DB_DATABASE . ';host=' . $this->DB_SERVER;

@@ -12,7 +12,7 @@ if (isset($_POST['btnDelOrder'])) {
 }
 ?>
 
-<html>
+<html> <!-- Admin order table view that gives viewing access to all past and current orders -->
 
 <head>
     <title>
@@ -20,7 +20,6 @@ if (isset($_POST['btnDelOrder'])) {
     </title>
 </head>
 
-<!-- Admin order table view that gives viewing access to all past and current orders -->
 <body>
 
     <div class="container text-center">
@@ -45,7 +44,7 @@ if (isset($_POST['btnDelOrder'])) {
                 </tr>
             </thead>
             <tbody>
-                <?php include_once 'CONTROLLER_adminOrders.php' ?>
+                <?php include_once 'CONTROLLER_adminOrders.php' ?> <!-- Loads admin orders in a loop, until there are no more rows. -->
             </tbody>
         </table>
         <form id="formOrderRemove" action="VIEW_adminOrders.php" method="post">

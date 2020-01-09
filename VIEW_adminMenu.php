@@ -4,7 +4,7 @@ include 'MODEL_databank.php';
 
 $databank = new databank();
 
-// Function to begin addition of data.
+// Send parameters for adding an item.
 if (isset($_POST['btnAddData'])) {
     $itemID = $_POST['addItemID'];
     $itemName = $_POST['addItemName'];
@@ -16,7 +16,7 @@ if (isset($_POST['btnAddData'])) {
     $databank->adminAddItem($newMenuItem);
 }
 
-// Function to begin edit of data.
+// Send parameters for editing an item.
 if (isset($_POST['btnEditData'])) {
     $itemID = $_POST['editItemID'];
     $itemName = $_POST['editItemName'];
@@ -28,7 +28,7 @@ if (isset($_POST['btnEditData'])) {
     $databank->adminEditItem($editedMenuItem);
 }
 
-// Function to begin deletion of data.
+// Send parameters for deleting an item.
 if (isset($_POST['btnDeleteData'])) {
     $itemID = $_POST['remItemID'];
 
@@ -36,7 +36,7 @@ if (isset($_POST['btnDeleteData'])) {
 }
 ?>
 
-<html>
+<html> <!-- Admin Menu view, contains multiple forms for editing, adding and removing from the menu. -->
 
 <head>
     <title>
@@ -44,7 +44,6 @@ if (isset($_POST['btnDeleteData'])) {
     </title>
 </head>
 
-<!-- Admin Menu view, contains multiple forms for editing, adding and removing from the menu. -->
 <body>
 
     <div class="container text-center">
@@ -57,7 +56,7 @@ if (isset($_POST['btnDeleteData'])) {
 
     <div class="container text-center">
         <div>
-            <table class="table">
+            <table class="table"> <!-- Admin menu table. -->
                 <thead>
                     <tr>
                         <th>No. </th>
@@ -69,7 +68,7 @@ if (isset($_POST['btnDeleteData'])) {
                     </tr>
                 </thead>
                 <tbody>
-                    <?php require 'CONTROLLER_adminMenu.php' ?>
+                    <?php require 'CONTROLLER_adminMenu.php' ?> <!-- Loads admin menu in a loop, until there are no more rows. -->
                 </tbody>
             </table>
         </div>

@@ -11,12 +11,13 @@ if (isset($_POST['placeOrder'])) {
     $newOrder = new order($orderID, $tableID, $totalPrice);
 
     $databank->customerPlaceOrder($newOrder);
-    ?> <script> 
-            alert("YOUR ORDER HAS BEEN PLACED! ID: <?php echo $orderID; ?> / TABLE: <?php echo $tableID; ?> / PRICE: £<?php echo $totalPrice; ?>")
-            window.location.href = "VIEW_customerIndex.php";
-            window.location.replace = ("VIEW_customerIndex.php");
-        </script> 
-    <?php
+?>
+    <script>
+        alert("YOUR ORDER HAS BEEN PLACED! ID: <?php echo $orderID; ?> / TABLE: <?php echo $tableID; ?> / PRICE: £<?php echo $totalPrice; ?>")
+        window.location.href = "VIEW_customerIndex.php";
+        window.location.replace = ("VIEW_customerIndex.php");
+    </script>
+<?php
 }
 
 ?>
@@ -42,8 +43,7 @@ if (isset($_POST['placeOrder'])) {
         </div>
 
         <div class="container">
-            <!-- Customer menu view. -->
-            <table class="table">
+            <table class="table"> <!-- Customer menu table. -->
                 <thead>
                     <tr>
                         <th>No. </th>
@@ -54,8 +54,8 @@ if (isset($_POST['placeOrder'])) {
                         <th>Quantity</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <?php require 'CONTROLLER_customerMenu.php'; ?></br>
+                <tbody> 
+                    <?php require 'CONTROLLER_customerMenu.php'; ?> <!-- Loads customer menu in a loop, until there are no more rows. --> </br> 
                 </tbody>
             </table>
             <div hidden><?php require 'CONTROLLER_customerOrderID.php'; ?></div>
@@ -68,7 +68,6 @@ if (isset($_POST['placeOrder'])) {
     </br></br>
     <input type="button" class="btn btn-danger" value="Return to Table Select" onclick="onClick_TableSel()">
     </div>
-
 </body>
 
 </html>
@@ -77,9 +76,5 @@ if (isset($_POST['placeOrder'])) {
     function onClick_TableSel() {
         window.location.href = "VIEW_customerIndex.php";
         window.location.replace = ("VIEW_customerIndex.php");
-    }
-
-    function onClick_OrderAlert() {
-        Alert("Your order has been placed, your order number is: ! Returning you to table select screen.");
     }
 </script>

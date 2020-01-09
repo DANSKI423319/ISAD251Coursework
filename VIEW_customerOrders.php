@@ -12,7 +12,7 @@ if (isset($_POST['btnSearch'])) {
 
 ?>
 
-<html>
+<html> <!-- File/Function not 100% right. It calls the procedure, but the code is in the wrong place perhaps? Or being activated wrong. -->
 
 <head>
     <title>

@@ -4,7 +4,7 @@ include 'MODEL_databank.php';
 
 ?>
 
-<html>
+<html> <!-- Admin home, contains buttons to other locations. -->
 
 <head>
     <title>
@@ -12,7 +12,6 @@ include 'MODEL_databank.php';
     </title>
 </head>
 
-<!-- Admin home, contains buttons to other locations. -->
 <body>
 
     <div class="jumbotron text-center">

@@ -8,6 +8,7 @@ class menuItem
     private $itemPrice;
     private $itemStock;
 
+    // CONSTRUCTOR.
     public function __construct($itemID, $itemName, $itemDesc, $itemPrice, $itemStock)
     {
         $this->itemID = $itemID;

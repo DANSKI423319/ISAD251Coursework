@@ -7,6 +7,7 @@ class orderItems
     private $itemID;
     private $quantity;
 
+    // CONSTRUCTOR.
     public function __construct($orderItemNum, $orderID, $itemID, $quantity)
     {
         $this->orderItemNum = $orderItemNum;
@@ -15,6 +16,7 @@ class orderItems
         $this->quantity = $quantity;
     }
 
+    // GETS
     public function getOrderItemNum()
     {
         return $this->OrderItemNum;
@@ -35,6 +37,7 @@ class orderItems
         return $this->quantity;
     }
 
+    // SETS
     public function setOrderItemNum($orderItemNum)
     {
         $this->tableID = $orderItemNum;

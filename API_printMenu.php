@@ -1,4 +1,4 @@
-<?php
+<?php // Prints API / JSON.
 
 include 'MODEL_databank.php';
 

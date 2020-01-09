@@ -19,7 +19,7 @@ if ($tblCommand) {
             </tr>
             
             <script>
-                function onClick_CancelOrder_'. $tblRow['orderID'] .'() {
+                function onClick_CancelOrder_' . $tblRow['orderID'] . '() {
                     txtDeleteOrder.value = orderID' . $tblRow['orderID'] . '.innerText;
                 }
             </script>

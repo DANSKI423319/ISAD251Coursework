@@ -52,7 +52,8 @@ if ($tblCommand) {
                     alert("ERROR: Cannot have minus products.");
                 }
             }
-                </script>
-            ';
+            
+            </script>
+        ';
     }
 }

@@ -5,7 +5,8 @@ class order
     private $tableID;
     private $orderID;
     private $totalPrice;
-
+    
+    // CONSTRUCTOR.
     public function __construct($orderID, $tableID, $totalPrice)
     {
         $this->orderID = $orderID;
@@ -13,7 +14,7 @@ class order
         $this->totalPrice = $totalPrice;
     }
 
-    // GETS
+    // GETS.
     public function getOrderID()
     {
         return $this->orderID;
@@ -29,7 +30,7 @@ class order
         return $this->totalPrice;
     }
 
-    // SETS
+    // SETS.
     public function setOrderID($orderID)
     {
         $this->orderID = $orderID;
