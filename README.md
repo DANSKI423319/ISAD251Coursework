@@ -1,12 +1,12 @@
-# ISAD251 CW (The Cozy Team Room)
+# ISAD251 CW (The Cozy Team Room) Fact Sheet
 
-### The Application
-The cozy team room application is a prototype product to simulate a user interface for placing and viewing orders as a customer. Including the system functionality to be maintained by an admin user as well. The admin can view previous orders, and edit the menu to their desire.
+### The Application (Fact sheet)
+The Cozy Team Room application is a prototype product to simulate a user interface for placing and viewing orders as a customer in a team room environment. Including the system functionality to be maintained by an admin user as well. The admin can view or cancel previous orders or edit the menu to their desire with new food items or drinks. With this they can set the price and amount of stock as well.
 
-### The System Specifics
-The application runs primarily through HTML and Java views, which are adapted by PHP controller files. The PHP controller files communicate with PHP model files. These model files communicate to a remote myPhpAdmin SQL server with stored procedures that are called on the Admin and Customer user interactions. This application has been primarily tested on Google Chrome and Opera with no issues.
+### The System Specifics (Fact sheet)
+The application runs primarily through HTML and Java views, which are adapted by PHP controller files. The PHP controller files communicate with PHP model files. These model files are linked to a remote myPhpAdmin SQL server with stored procedures and table values that are called on the Admin and Customer user interactions. This application has been primarily tested on Google Chrome and Opera with no issues. (Screenshots of Google Chrome).
 
-### The Capabilities and Functions
+### The Capabilities and Functions (Fact sheet)
 - Customers can select a table ID (between 1 and 100).
 - Customers can view a menu table.
 - Customers can place an order.
@@ -16,12 +16,14 @@ The application runs primarily through HTML and Java views, which are adapted by
 - Admins can add menu items.
 - Admins can remove menu items.
 
+(FACTSHEET WC: 201)
+
 ### Links
 - Video demo : https://youtu.be/24fRWnZVJUs
 - Style sheet : https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css
-- API output 1 : http://cent-5-534.uopnet.plymouth.ac.uk/ISAD251/dskillman/ISAD251Coursework/API_printMenu.php
-- API output 2 : http://cent-5-534.uopnet.plymouth.ac.uk/ISAD251/dskillman/ISAD251Coursework/API_printOrders.php
-- Application Start Point : http://cent-5-534.uopnet.plymouth.ac.uk/ISAD251/dskillman/ISAD251Coursework/VIEW_index.php
+- API output 1 : http://cent-5-534.uopnet.plymouth.ac.uk/ISAD251/dskillman/ISAD251Coursework/src/API/API_printMenu.php
+- API output 2 : http://cent-5-534.uopnet.plymouth.ac.uk/ISAD251/dskillman/ISAD251Coursework/src/API/API_printOrders.php
+- Application Start Point : http://cent-5-534.uopnet.plymouth.ac.uk/ISAD251/dskillman/ISAD251Coursework/src/View/VIEW_index.php
 
 ### Screenshots
 **Main Menu :** Choose between Customer or Admin.
