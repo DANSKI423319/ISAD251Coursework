@@ -30,9 +30,10 @@ The application runs primarily through HTML and Java views, which are adapted by
 ![MainMenu.png](https://i.imgur.com/JYayND0.png)
 
 #### CUSTOMER
-**Customer : Place an order or View an order** by clicking either button.
+**Customer : Select a table number or View a previous order** by clicking either button.
 ![CustomerMainMenu.png](https://i.imgur.com/3zREAf2.png)
-**Customer : View of menu**, to place an order, simply start adding items to your basket by pressing the green button.</br>
+**Customer : View of menu.**</br> 
+To place an order, simply start adding items to your basket by pressing the green button.</br>
 You can also remove items with the red button. When you are satisfied with your order press the blue button and your order will be confirmed and put into the system.
 ![CustomerMenu.png](https://i.imgur.com/R1SZzxU.png)
 **Customer : View a previous order** (not functional).
@@ -41,12 +42,15 @@ You can also remove items with the red button. When you are satisfied with your 
 #### ADMIN
 **Admin : View orders or Ammend the menu** by clicking either button.
 ![AdminMainMenu.png](https://i.imgur.com/RR4VhT7.png)
-**Admin : View past orders**, the red button will put the order ID into the text box at the bottom of the table.</br> Here you confirm your removal of the order with the blue button. Pressing this will remove an order from the application.
+**Admin : View past orders.**</br>
+The red button will put the selected order ID into the box at the bottom of the table.</br>
+Here you confirm your removal of the order with the blue button. Pressing this will remove an order from the system.
 ![AdminOrders.png](https://i.imgur.com/UdsNpe1.png)
 **Admin : Ammend menu.** Here you can edit, add and remove items.</br> 
-To **edit an item** you must click on the green button in the table. It will load up a set of text boxes with strings.</br>
+To **edit an item** you must click on the green button in the table. It will set text boxes with a collection of strings.</br>
 Here you must unlock the strings with the yellow button to confirm these are the values you're changing.</br>
 When satisfied confirm the changes with the blue button.</br>
-To **add an item**, you type into the top set of input boxes the set of information on the new item being added. Then press the blue button.</br>
-To **remove an item**, simply press the red button on the table. And go to the short form at the bottom of the page. Check the item ID in the box, then click on the blue button to confirm the removal of the item.
+To **add an item**, you type into the top set of input boxes the set of information on the new item being added. Press the blue button.</br>
+To **remove an item**, simply press the red button on the table. Go to the short form at the bottom of the page. Check the item ID in the box, click on the blue button to confirm the removal of the item.
 ![AdminMenu.png](https://i.imgur.com/6p0Qjny.png)
+#### IMPORTANT : PUT A DECIMAL PLACE IN PRICE VALUES (I.E. 2.99)
