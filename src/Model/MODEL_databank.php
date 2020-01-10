@@ -98,22 +98,25 @@ class databank
 
     // Function for admins to add items.
     public function adminAddItem($menuItem)
-    {
-        $itemID = $menuItem->getItemID();
+    {   // Get items from the if(isset) frunction to add new items from VIEW_adminMenu.php.
+        $itemID = $menuItem->getItemID(); // Assign each variable using getters to menuItem object.
         $itemName = $menuItem->getItemName();
         $itemDesc = $menuItem->getItemDesc();
         $itemPrice = $menuItem->getItemPrice();
         $itemStock = $menuItem->getItemStock();
 
+        // Call the add menu item procedure.
         $dbQuery = "CALL adminAddItem(:itemID, :itemName, :itemDesc, :itemPrice, :itemStock)";
         $dbOutput = $this->dbConnection->prepare($dbQuery);
 
+        // Assign each variable from above to a parameter value before executing the call.
         $dbOutput->bindParam(':itemID', $itemID, PDO::PARAM_INT);
         $dbOutput->bindParam(':itemName', $itemName, PDO::PARAM_STR);
         $dbOutput->bindParam(':itemDesc', $itemDesc, PDO::PARAM_STR);
         $dbOutput->bindParam(':itemPrice', $itemPrice, PDO::PARAM_STR);
         $dbOutput->bindParam(':itemStock', $itemStock, PDO::PARAM_INT);
 
+        // Call procedure with parameters.
         $dbOutput->execute();
     }
 
