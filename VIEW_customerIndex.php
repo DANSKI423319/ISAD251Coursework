@@ -1,6 +1,5 @@
 <?php
 include 'assets/header.php';
-include 'MODEL_databank.php';
 ?>
 
 <html>

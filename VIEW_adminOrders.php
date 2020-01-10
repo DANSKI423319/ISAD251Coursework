@@ -9,6 +9,11 @@ if (isset($_POST['btnDelOrder'])) {
     $orderID = $_POST['delOrderID'];
 
     $databank->adminDeleteOrder($orderID);
+    ?>
+    <script>
+        alert("YOU HAVE CANCELED ORDER [ <?php echo $orderID; ?> ]")
+    </script>
+<?php
 }
 ?>
 

@@ -14,6 +14,12 @@ if (isset($_POST['btnAddData'])) {
     $newMenuItem = new menuItem($itemID, $itemName, $itemDesc, $itemPrice, $itemStock);
 
     $databank->adminAddItem($newMenuItem);
+?>
+    <script>
+        alert("YOU HAVE ADDED ITEM [ <?php echo $itemID; ?> : <?php echo $itemName; ?> : " +
+            "<?php echo $itemDesc; ?> : <?php echo $itemPrice; ?> : <?php echo $itemStock ?> ]")
+    </script>
+<?php
 }
 
 // Send parameters for editing an item.
@@ -26,6 +32,11 @@ if (isset($_POST['btnEditData'])) {
     $editedMenuItem = new menuItem($itemID, $itemName, $itemDesc, $itemPrice, $itemStock);
 
     $databank->adminEditItem($editedMenuItem);
+?>
+    <script>
+        alert("YOU HAVE EDITED ITEM [ <?php echo $itemID; ?> ]")
+    </script>
+<?php
 }
 
 // Send parameters for deleting an item.
@@ -33,10 +44,16 @@ if (isset($_POST['btnDeleteData'])) {
     $itemID = $_POST['remItemID'];
 
     $databank->adminDeleteItem($itemID);
+?>
+    <script>
+        alert("YOU HAVE DELETED ITEM [ <?php echo $itemID; ?> ]")
+    </script>
+<?php
 }
 ?>
 
-<html> <!-- Admin Menu view, contains multiple forms for editing, adding and removing from the menu. -->
+<html>
+<!-- Admin Menu view, contains multiple forms for editing, adding and removing from the menu. -->
 
 <head>
     <title>
@@ -56,7 +73,8 @@ if (isset($_POST['btnDeleteData'])) {
 
     <div class="container text-center">
         <div>
-            <table class="table"> <!-- Admin menu table. -->
+            <table class="table">
+                <!-- Admin menu table. -->
                 <thead>
                     <tr>
                         <th>No. </th>
@@ -68,7 +86,8 @@ if (isset($_POST['btnDeleteData'])) {
                     </tr>
                 </thead>
                 <tbody>
-                    <?php require 'CONTROLLER_adminMenu.php' ?> <!-- Loads admin menu in a loop, until there are no more rows. -->
+                    <?php require 'CONTROLLER_adminMenu.php' ?>
+                    <!-- Loads admin menu in a loop, until there are no more rows. -->
                 </tbody>
             </table>
         </div>
