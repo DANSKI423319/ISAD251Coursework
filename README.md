@@ -19,9 +19,9 @@ The application runs primarily through HTML and Java views, which are adapted by
 ### Links
 - Video demo : https://youtu.be/24fRWnZVJUs
 - Style sheet : https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css
-- API output 1 : LINK
-- API output 2 : LINK
-- Application : LINK
+- API output 1 : http://cent-5-534.uopnet.plymouth.ac.uk/ISAD251/dskillman/ISAD251Coursework/API_printMenu.php
+- API output 2 : http://cent-5-534.uopnet.plymouth.ac.uk/ISAD251/dskillman/ISAD251Coursework/API_printOrders.php
+- Application Start Point : http://cent-5-534.uopnet.plymouth.ac.uk/ISAD251/dskillman/ISAD251Coursework/VIEW_index.php
 
 ### Screenshots
 **Main Menu :** Choose between Customer or Admin.
