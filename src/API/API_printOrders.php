@@ -1,6 +1,6 @@
 <?php // Prints API / JSON.
 
-include 'MODEL_databank.php';
+include '../Model/MODEL_databank.php';
 
 $databank = new databank();
 $dbQuery = "CALL adminMenu";
