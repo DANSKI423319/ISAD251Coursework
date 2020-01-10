@@ -53,4 +53,4 @@ When satisfied confirm the changes with the blue button.</br>
 To **add an item**, you type into the top set of input boxes the set of information on the new item being added. Press the blue button.</br>
 To **remove an item**, simply press the red button on the table. Go to the short form at the bottom of the page. Check the item ID in the box, click on the blue button to confirm the removal of the item.
 ![AdminMenu.png](https://i.imgur.com/6p0Qjny.png)
-#### IMPORTANT : PUT A DECIMAL PLACE IN PRICE VALUES (I.E. 2.99)
+#### WARNING : PUT A DECIMAL PLACE IN PRICE VALUES (I.E. 2.99)
