@@ -1,6 +1,6 @@
 <?php
-include 'assets/header.php';
-include 'MODEL_databank.php';
+include '../assets/header.php';
+include '../Model/MODEL_databank.php';
 
 $databank = new databank();
 
@@ -49,7 +49,7 @@ if (isset($_POST['btnDelOrder'])) {
                 </tr>
             </thead>
             <tbody>
-                <?php include_once 'CONTROLLER_adminOrders.php' ?> <!-- Loads admin orders in a loop, until there are no more rows. -->
+                <?php include_once '../Controller/CONTROLLER_adminOrders.php' ?> <!-- Loads admin orders in a loop, until there are no more rows. -->
             </tbody>
         </table>
         <form id="formOrderRemove" action="VIEW_adminOrders.php" method="post">

@@ -1,5 +1,5 @@
 <?php
-include 'assets/header.php';
+include '../assets/header.php';
 ?>
 
 <html>

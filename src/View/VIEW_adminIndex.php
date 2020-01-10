@@ -1,6 +1,6 @@
 <?php
-include 'assets/header.php';
-include 'MODEL_databank.php';
+include '../assets/header.php';
+include '../Model/MODEL_databank.php';
 
 ?>
 

@@ -1,6 +1,6 @@
 <?php
-include 'assets/header.php';
-include 'MODEL_databank.php';
+include '../assets/header.php';
+include '../Model/MODEL_databank.php';
 
 $databank = new databank();
 
@@ -44,7 +44,7 @@ if (isset($_POST['btnSearch'])) {
                 <tbody>
                     <?php
                     if (isset($_POST['btnSearch'])) {
-                        include 'CONTROLLER_customerOrders.php';
+                        include '../Controller/CONTROLLER_customerOrders.php';
                     }
                     ?>
                 </tbody>

@@ -1,6 +1,6 @@
 <?php
-include 'assets/header.php';
-include 'MODEL_databank.php';
+include '../assets/header.php';
+include '../Model/MODEL_databank.php';
 
 $databank = new databank();
 
@@ -55,10 +55,10 @@ if (isset($_POST['placeOrder'])) {
                     </tr>
                 </thead>
                 <tbody> 
-                    <?php require 'CONTROLLER_customerMenu.php'; ?> <!-- Loads customer menu in a loop, until there are no more rows. --> </br> 
+                    <?php require '../Controller/CONTROLLER_customerMenu.php'; ?> <!-- Loads customer menu in a loop, until there are no more rows. --> </br> 
                 </tbody>
             </table>
-            <div hidden><?php require 'CONTROLLER_customerOrderID.php'; ?></div>
+            <div hidden><?php require '../Controller/CONTROLLER_customerOrderID.php'; ?></div>
             <b>TOTAL: £ <input type="text" id="totalPrice" name="newTotalPrice" class="w3-input" placeholder="0.00" readonly></b>
             <b>ORDER ID: <input type="number" id="txtNextOrderID" name="newOrderID" class="w3-input" value="<?php $newItemID = $tblRow['orderID'];
                                                                                                             $newItemID = $newItemID + 1;

@@ -1,6 +1,6 @@
 <?php
-include 'assets/header.php';
-include 'MODEL_databank.php';
+include '../assets/header.php';
+require '../Model/MODEL_databank.php';
 
 $databank = new databank();
 
@@ -86,7 +86,7 @@ if (isset($_POST['btnDeleteData'])) {
                     </tr>
                 </thead>
                 <tbody>
-                    <?php require 'CONTROLLER_adminMenu.php' ?>
+                    <?php require '../Controller/CONTROLLER_adminMenu.php' ?>
                     <!-- Loads admin menu in a loop, until there are no more rows. -->
                 </tbody>
             </table>
