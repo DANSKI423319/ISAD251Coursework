@@ -26,19 +26,27 @@ The application runs primarily through HTML and Java views, which are adapted by
 - Application Start Point : http://cent-5-534.uopnet.plymouth.ac.uk/ISAD251/dskillman/ISAD251Coursework/src/View/VIEW_index.php
 
 ### Screenshots
-**Main Menu :** Choose between Customer or Admin.
+**Main Menu : Choose between Customer or Admin** by clicking either button.
 ![MainMenu.png](https://i.imgur.com/JYayND0.png)
+
 #### CUSTOMER
-**Customer :** Place an order / View an order.
+**Customer : Place an order or View an order** by clicking either button.
 ![CustomerMainMenu.png](https://i.imgur.com/3zREAf2.png)
-**Customer :** View of menu, capable of placing an order.
+**Customer : View of menu**, to place an order, simply start adding items to your basket by pressing the green button.</br>
+You can also remove items with the red button. When you are satisfied with your order press the blue button and your order will be confirmed and put into the system.
 ![CustomerMenu.png](https://i.imgur.com/R1SZzxU.png)
-**Customer :** View a previous order (not functional).
+**Customer : View a previous order** (not functional).
 ![CustomerOrders.png](https://i.imgur.com/DlLOl15.png)
+
 #### ADMIN
-**Admin :** View orders / Ammend the menu.
+**Admin : View orders or Ammend the menu** by clicking either button.
 ![AdminMainMenu.png](https://i.imgur.com/RR4VhT7.png)
-**Admin :** View past orders.
+**Admin : View past orders**, the red button will put the order ID into the text box at the bottom of the table.</br> Here you confirm your removal of the order with the blue button. Pressing this will remove an order from the application.
 ![AdminOrders.png](https://i.imgur.com/UdsNpe1.png)
-**Admin :** Ammend menu.
+**Admin : Ammend menu.** Here you can edit, add and remove items.</br> 
+To **edit an item** you must click on the green button in the table. It will load up a set of text boxes with strings.</br>
+Here you must unlock the strings with the yellow button to confirm these are the values you're changing.</br>
+When satisfied confirm the changes with the blue button.</br>
+To **add an item**, you type into the top set of input boxes the set of information on the new item being added. Then press the blue button.</br>
+To **remove an item**, simply press the red button on the table. And go to the short form at the bottom of the page. Check the item ID in the box, then click on the blue button to confirm the removal of the item.
 ![AdminMenu.png](https://i.imgur.com/6p0Qjny.png)
